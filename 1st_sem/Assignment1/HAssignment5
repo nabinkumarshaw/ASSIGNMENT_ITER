@@ -1,6 +1,6 @@
 package Assignment1;
 
-public class HAQ5_Approach2 {   // Without using an extra variable ...
+public class HAQ5 {   // Without using an extra variable ...
     public static void main(String[] args) {
         int w = 1, a = 2, k = 3, g = 4;
         System.out.println("Before Swapping w is : "+w);
