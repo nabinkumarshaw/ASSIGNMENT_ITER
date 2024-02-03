@@ -1,1 +1,18 @@
+package Assignment3;
+
+public class Assignment3Q10 {
+    public static String reverse(String s){
+        //base case
+        if(s.length()==0)
+            return " ";
+        //recursive work
+        String ss=reverse(s.substring(1));
+        //self work
+        return ss+s.charAt(0);
+    }
+    public static void main(String[] args) {
+
+        System.out.println(reverse("nabin kumar shaw"));
+}
+}
 
