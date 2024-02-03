@@ -1,1 +1,44 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+class student{
+    int roll;
+    String name;
+    int DSA_MARKS;
+    void setdata(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter roll no");
+         roll= sc.nextInt();
+        System.out.println("enter name");
+         name= sc.next();
+        System.out.println("enter the marks");
+         DSA_MARKS= sc.nextInt();
+    }
+    void display1()
+    {
+        System.out.println(name  +"," + roll  +","+ DSA_MARKS);
+    }
+}
+public class Q3 {
+    public static void main(String[] args) {
+        student s[]=new student[3];
+        int maxmark=Integer.MIN_VALUE;
+        int index=0;
+        for(int i=0;i<s.length;i++){
+            s[i]=new student();
+            s[i].setdata();
+            if(s[i].DSA_MARKS>maxmark){
+                maxmark=s[i].DSA_MARKS;
+                index=i;
+            }
+        }
+        System.out.println("the student information are ");
+        for(int i=0;i<s.length;i++){
+            s[i].display1();
+        }
+        System.out.println("student who have secured the highest mark is " );
+        s[index].display1();
+    }
+}
 
