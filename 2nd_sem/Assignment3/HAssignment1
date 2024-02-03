@@ -1,0 +1,53 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+class InvalidBalanceException extends Exception{
+    InvalidBalanceException(String mssg){
+        super(mssg);
+    }
+}
+class Bank{
+    int account_no;
+    String name;
+    static int balance;
+    static int withdraw;
+
+    Scanner sc=new Scanner(System.in);
+    public void input(){
+        System.out.println("enter your name");
+        name= sc.nextLine();
+        System.out.println("enter your account number");
+        account_no=sc.nextInt();
+        System.out.println("enter the balance");
+        balance=sc.nextInt();
+        System.out.println("Enter the money to withdraw");
+        int withdraw=sc.nextInt();
+    }
+
+    public void output() {
+        System.out.println("Details of the Account holder is ");
+        System.out.println("Name: "+name);
+        System.out.println("Account number: "+account_no);
+        System.out.println("Balance: "+balance);
+    }
+}
+public class Assignment3hwQ1 {
+    public static void main(String[] args) {
+        Bank b = new Bank();
+        b.input();
+        b.output();
+        try{
+            int tot_balance=b.balance-b.withdraw;
+            if(tot_balance<=0){
+                throw new InvalidBalanceException("Balance cannot be less than 0");
+            }
+            else
+                System.out.println("After withdraw, Balance ="+tot_balance);
+        }
+        catch (InvalidBalanceException e){
+            System.out.println(e);
+        }
+    }
+
+}
