@@ -1,1 +1,92 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+public class Assignment3Q7 {
+    //1)factorial of a number by usuing recursion
+    public static int factorial(int n) {
+        //base case
+        if (n == 0)
+            return 1;
+        //recuursive work
+        int p = factorial(n - 1);
+        //self case
+        return n * p;
+    }
+
+    // 2)x^n for two number
+    public static int numberpower(int x, int n) {
+        //base case
+        if (n == 0) return 1;
+        //recursive work
+        int p = numberpower(x, n - 1);
+        //selfwork
+        return x * p;
+    }
+
+    //3)gcd of 2 number
+    public static int gcd(int x, int y) {
+        //base case
+        if (y == 0)
+            return x;
+        //recursive work & selfwork
+        return gcd(y, x % y);
+    }
+
+    //4)binary equivalent of decimal number
+    public static String decimaltobinary(int n) {
+        //base case
+        if (n == 0)
+            return "0";
+        if (n == 1)
+            return "1";
+        //recursive & selfwork
+        return decimaltobinary(n / 2) + String.valueOf(n % 2);
+    }
+
+    //multiplication of two number
+    public static int product(int x, int y) {
+        //base case
+        if (x == 0 || y == 0)
+            return 0;
+        //recursive & selfwork
+        return x + product(x, y - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("**menu**");
+            System.out.println("case 1-->exit");
+            System.out.println("case 2-->factorial of a number");
+            System.out.println("case 3-->power of  number");
+            System.out.println("case 4-->gcd of two number");
+            System.out.println("case 5--> decimal to binary");
+            System.out.println("case 6-->product of two number number");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.exit(0);
+                case 2:
+                    System.out.println(factorial(5));
+                    break;
+                case 3:
+                    System.out.println(numberpower(4, 3));
+                    break;
+                case 4:
+                    System.out.println(gcd(9, 4));
+                    break;
+                case 5:
+                    System.out.println(decimaltobinary(15));
+                    break;
+                case 6:
+                    System.out.println(product(6, 6));
+                    break;
+                default:
+                    System.out.println("wrong input");
+                    break;
+            }
+        }
+    }
+}
 
