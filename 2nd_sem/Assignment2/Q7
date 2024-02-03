@@ -1,1 +1,31 @@
+package Assignment2;
+class person{
+    String name;
+    int age;
+    person(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+}
+class employee extends person{
+    int eid;
+    double salary;
+    employee(String name,int age,int eid,double salary){
+        super(name, age);
+        this.eid=eid;
+        this.salary=salary;
+    }
+    void empdisplay(){
+        System.out.println("the name is "+name
+        + ", age is "+age
+        + ", eid is "+eid
+        + ", salary is "+salary);
+    }
+}
+public class Q7 {
+    public static void main(String[] args) {
+employee e=new employee("bhaskar",18,908,90000);
+e.empdisplay();
+    }
+}
 
