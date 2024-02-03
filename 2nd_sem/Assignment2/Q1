@@ -1,0 +1,27 @@
+package Assignment2;
+class phone{
+    int area_code;
+    int exchange;
+    int number;
+
+    void input(int area_code,int exchange,int number){
+        this.area_code=area_code;
+        this.exchange=exchange;
+        this.number=number;
+    }
+    void display(){
+        System.out.println("("+area_code+")-"+exchange+"-"+number);
+    }
+}
+public class Q1 {
+    public static void main(String[] args) {
+phone p1=new phone();
+phone p2=new phone();
+p1.number=123;
+p1.area_code=456;
+p1.exchange=789;
+p2.input(212,767,8900);
+p1.display();
+p2.display();
+    }
+}
