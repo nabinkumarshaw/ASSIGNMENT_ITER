@@ -1,1 +1,37 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+class complex{
+    int real;
+    int image;
+
+    void setdata(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the real value");
+        real= sc.nextInt();
+        System.out.println("enter the imaginary value");
+        image= sc.nextInt();
+    }
+    void display(){
+        System.out.println(real +"+"+ image +"i");
+    }
+    public complex add(complex c1,complex c2){
+        complex c3=new complex();
+        c3.real=c1.real+c2.real;
+        c3.image=c1.image+c2.image;
+        return c3;
+    }
+}
+public class Q2 {
+    public static void main(String[] args) {
+        complex c1=new complex();
+        complex c2=new complex();
+        c1.setdata();
+        c2.setdata();
+        complex sum=new complex();
+         sum=sum.add(c1,c2);
+        sum.display();
+    }
+}
 
