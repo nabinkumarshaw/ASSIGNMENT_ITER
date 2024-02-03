@@ -1,1 +1,21 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+public class Assignment3Q1 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter your lucky number");
+        int num= sc.nextInt();
+        try {
+            if(num<0){
+                throw new NumberFormatException("negative number");
+            }
+            System.out.println("your luckey number is "+num);
+        }
+        catch (NumberFormatException e){
+            System.out.println(e);
+        }
+    }
+}
 
