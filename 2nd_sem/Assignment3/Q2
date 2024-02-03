@@ -1,1 +1,35 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+public class Assignment3Q2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter four color ");
+        String color[]=new String[4];
+
+        for(int i=0;i<color.length;i++) {
+            color[i] = sc.next();
+        }
+        try {
+            System.out.println("convert string to integer");
+            int a=Integer.parseInt(color[0]);
+        }
+        catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+        try{
+//                System.out.println("enter 1 more color");
+//                String c=sc.next();
+            System.out.println(color[5]);
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println(e);
+        }
+        System.out.println("the colours entered are");
+        for(int i=0;i<color.length;i++){
+            System.out.println(color[i]);
+        }
+    }
+}
 
