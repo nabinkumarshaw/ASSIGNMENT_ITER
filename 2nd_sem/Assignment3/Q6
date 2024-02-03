@@ -1,1 +1,46 @@
+package Assignment3;
+class Box<t>{
+    t obj;
+
+    Box(t obj){
+        this.obj=obj;
+    }
+    //get and set method
+    public t get(){
+
+        return obj;
+    }
+    public void set(t obj){
+
+        this.obj=obj;
+    }
+}
+public class Assignment3Q6 {
+    public static void main(String[] args) {
+        Box<String> obj1 = new Box<String>("nabin");
+        Box<String> obj2 = obj1;
+        System.out.println("string object1 is: " + obj1.get());
+        System.out.println("string object2 is: " + obj2.get());
+        obj1.set("changed name is nabin kumar shaw");
+        System.out.println("string object1 after changed is: " + obj1.get());
+        System.out.println("string object2 after changed is: " + obj2.get());
+
+        Box<Integer> obj3 = new Box<>(1234);
+        Box<Integer> obj4 = obj3;
+        System.out.println("integer object3 is: " + obj3.get());
+        System.out.println("integer object4 is: " + obj4.get());
+        obj3.set(990);
+        System.out.println("integer object3 after changed is : " + obj3.get());
+        System.out.println("integer object3 is after changed is : " + obj4.get());
+
+        Box<Object> obj5=new Box<>(new Object());
+        Box<Object> obj6=obj5;
+        System.out.println("object type obj5 is: "+obj5.get());
+        System.out.println("object type obj6 is: "+obj6.get());
+        obj5.set("string to be inputed");
+        obj6.set(1233456789);
+        System.out.println("object type obj5 after changed is: "+obj5.get());
+        System.out.println("object type obj6 after changed is  is: "+obj6.get());
+    }
+}
 
