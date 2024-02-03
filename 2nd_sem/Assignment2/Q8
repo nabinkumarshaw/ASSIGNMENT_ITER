@@ -1,1 +1,31 @@
+package Assignment2;
+interface detailinfo{
+    void display();
+    int count();
+}
+class persons implements detailinfo{
+    static int maxcount;
+    String name;
+    persons(String name){
+        this.name=name;
+    }
+    public int count(){
+        for(int i=0;i<name.length();i++) {
+            char c = name.charAt(i);
+            if(c==' ')continue;
+            maxcount++;
+
+        }
+        return maxcount;
+    }
+    public void display() {
+        System.out.println("the name of the person is "+name + " the length of the name is "+count());
+    }
+}
+public class Q8 {
+    public static void main(String[] args) {
+        persons p=new persons("my love");
+        p.display();
+    }
+}
 
