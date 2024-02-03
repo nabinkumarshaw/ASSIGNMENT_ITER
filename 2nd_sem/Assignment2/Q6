@@ -1,1 +1,45 @@
+package Assignment2;
+abstract class shape{
+   abstract double area();
+}
+class square extends shape{
+   int side;
+   square(int side){
+       this.side=side;
+   }
+    double area()
+    {
+        return side *side;
+    }
+}
+class triangle extends shape{
+    int base;
+    int height;
+    triangle(int base,int height){
+        this.base=base;
+        this.height=height;
+    }
+    double area(){
+        return 0.5*base*height;
+    }
+}
+class circle extends shape{
+    int radius;
+    circle(int radius){
+      this.radius=radius;
+    }
+    double area(){
+        return Math.PI*radius*radius;
+    }
+}
+public class Q6 {
+    public static void main(String[] args) {
+        square s=new square(3);
+        triangle t=new triangle(2,6);
+        circle c=new circle(3);
+        System.out.println("the area of a square is "+s.area());
+        System.out.println("the area of a triangle is "+t.area());
+        System.out.println("the area of a circle is "+c.area());
+    }
+}
 
