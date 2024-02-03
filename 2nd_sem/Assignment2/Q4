@@ -1,1 +1,49 @@
+package Assignment2;
+
+import java.util.Scanner;
+
+class product{
+   int pid;
+    int pprice;
+    static int tot_price;
+    product(int pid,int pprice){
+        this.pid=pid;
+        this.pprice=pprice;
+        tot_price+=pprice;
+    }
+    void display(){
+        System.out.println(pid +","+ pprice);
+        System.out.println("the total price of the product are "+tot_price);
+    }
+
+}
+public class Q4 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        product pro[]=new product[5];
+        System.out.println("enter product id and price ");
+        for(int i=0;i<pro.length;i++){
+           int a=sc.nextInt();
+           int b=sc.nextInt();
+           pro[i]=new product(a,b);
+        }
+        for(int i=0;i<pro.length;i++){
+            pro[i].display();
+        }
+        System.out.println("total amount the person will pay for the purchase of 5 product is "+product.tot_price);
+
+//        product p1=new product(2,89);
+//        product p2=new product(4,67);
+//        product p3=new product(9,23);
+//        product p4=new product(5,56);
+//        product p5=new product(6,90);
+//        // tot_price=p1.pprice+ p2.pprice+ p3.pprice+ p4.pprice+ p5.pprice;
+//      p1. display();
+//      p2.display();
+//      p3.display();
+//      p4.display();
+//      p5.display();
+
+    }
+}
 
