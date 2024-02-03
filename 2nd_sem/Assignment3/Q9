@@ -1,1 +1,21 @@
+package Assignment3;
+
+public class Assignment3Q9 {
+    public static int fibbonacci(int n){
+        //base case
+        if(n==0)return 0;
+        if(n==1)return 1;
+
+        //recursive work
+        int p=fibbonacci(n-1);
+        int q=fibbonacci(n-2);
+        //self work
+        return p+q;
+
+    }
+    public static void main(String[] args) {
+        System.out.println("enter a number");
+        System.out.println("Fibonacci number at 5th position "+fibbonacci(5));
+    }
+}
 
