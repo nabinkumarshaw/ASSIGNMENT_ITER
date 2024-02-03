@@ -1,1 +1,21 @@
+package Assignment3;
+
+public class Assignment3Q8 {
+    //reverse a given digit using recursion
+    public static void reversedigit(int n){
+        //base case
+        if(n<10) {
+            System.out.print(n);
+            return;
+        }
+        //self work
+        System.out.print(n%10);
+        //recursive work
+        reversedigit(n/10);
+    }
+    public static void main(String[] args) {
+
+        reversedigit(12345);
+    }
+}
 
