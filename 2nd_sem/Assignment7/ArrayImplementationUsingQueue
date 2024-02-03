@@ -1,1 +1,76 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ArrayImplementationUsingQueue {
+    public static class queue{
+        int[]arr=new int[10];
+        int rare=-1;
+        int front=-1;
+        int size=0;
+        public void add(int val){
+            if(rare==arr.length-1){
+                System.out.println("queue is full");
+            }
+            if(front==-1){
+                rare=front=0;
+                arr[0]=val;
+            }
+            else {
+                arr[rare + 1] = val;
+                rare = rare + 1;
+            }
+                size++;
+
+        }
+        public int remove() {
+            if (front == -1) {
+                System.out.println("queue is empty");
+                return -1;
+            }
+            front++;
+            size--;
+            return arr[front - 1];
+        }
+        public void display(){
+            if(size==0)
+                System.out.println("queue is empty");
+            for(int i=front;i<=rare;i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+        }
+        public int peek(){
+            if(size==0){
+            System.out.println("queue is empty");
+            return -1;
+            }
+            return arr[front];
+        }
+        public boolean isfull(){
+            if(size== arr.length-1){
+                return true;
+        }
+        return false;
+    }
+        public boolean isempty(){
+            if(size== 0){
+                return true;
+            }
+            return false;
+        }
+    }
+    public static void main(String[] args) {
+       queue que=new queue();
+        System.out.println(que.isempty());
+        System.out.println(que.isfull());
+        que.add(10);
+        que.add(5);
+        que.add(89);
+        que.add(100);
+        System.out.println(que.peek());
+        que.display();
+        que.remove();
+        que.display();
+    }
+}
 
