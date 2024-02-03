@@ -1,1 +1,39 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+public class Assignment3Q4 {
+    public static <E> void printArray(E[] inputarray) {
+
+        //using for loop
+        for (int i = 0; i < inputarray.length; i++) {
+            System.out.print(inputarray[i] + " ");
+        }
+        System.out.println();
+    }
+
+    //using forEach loop
+//        for(E element:inputarray){
+//            System.out.println(element+" ");
+//        }
+//        System.out.println();
+//    }
+    public static void main(String[] args) {
+        Integer arr1[]=new Integer[5];
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the Array element of integer type");
+        for(int i=0;i<arr1.length;i++){
+            arr1[i]=sc.nextInt();
+        }
+        System.out.println("integer array contains");
+        printArray(arr1);
+        Double arr2[]=new Double[5];
+        System.out.println("enter the Array element of double type");
+        for(int i=0;i<arr1.length;i++) {
+            arr2[i] = sc.nextDouble();
+        }
+        System.out.println("double array contains");
+        printArray(arr2);
+    }
+}
 
