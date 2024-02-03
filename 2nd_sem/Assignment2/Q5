@@ -1,1 +1,54 @@
+package Assignment2;
+class deposite{
+    long principal;
+    int time;
+    double rate;
+    double total_amt;
+
+    deposite(){
+    principal=1890;
+    rate=3;
+    time=1;
+    }
+    deposite( long principal,int time,double rate){
+       this.principal=principal;
+       this.time=time;
+       this.rate=rate;
+    }
+    deposite(long principal,int time){
+        this.principal=principal;
+        this.time=time;
+        rate=2;
+
+    }
+    deposite(long principal,double rate){
+        this.principal=principal;
+        this.rate=rate;
+        time=4;
+
+    }
+    void display(){
+        System.out.println( principal+","+ time+","+ rate);
+    }
+    double calc_amt(){
+      total_amt=principal+(principal*rate*time)/100;
+      return total_amt;
+    }
+}
+public class Q5 {
+    public static void main(String[] args) {
+        deposite d1=new deposite();
+        deposite d2=new deposite(3789l,3,2.0);
+        deposite d3=new deposite(7890l,4);
+        deposite d4=new deposite(4500l,2.0);
+        d1.display();
+        System.out.println(d1.calc_amt());
+        d2.display();
+        System.out.println(d2.calc_amt());
+        d3.display();
+        System.out.println(d3.calc_amt());
+        d4.display();
+        System.out.println(d4.calc_amt());
+    }
+}
 
