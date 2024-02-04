@@ -1,0 +1,73 @@
+public class LinklistImplementationUsingQueue {
+    public static class node{
+        int data;
+        node next;
+        node(int data){
+            this.data=data;
+        }
+    }
+    public static class queue{
+        node head=null;
+        node tail=null;
+        int size=0;
+        public void add(int val){
+            node temp=new node(val);
+            if(size==0){
+                head=temp;
+                tail=temp;
+            }
+            else{
+                tail.next=temp;
+                tail=temp;
+            }
+            size++;
+
+        }
+        public int delete(){
+            if(size==0){
+                System.out.println("queue is empty");
+            }
+            int x=head.data;
+            head=head.next;
+            size--;
+            return x;
+        }
+        public void display(){
+            node t=head;
+            while(head==null){
+                System.out.println("queue is empty");
+            }
+            while(t!=null){
+                System.out.print(t.data+" ");
+                t=t.next;
+            }
+            System.out.println();
+        }
+        public int peek(){
+            if(size==0){
+                System.out.println("queue is empty");
+                return -1;
+            }
+            return head.data;
+        }
+        public boolean isempty(){
+            if(size==0)
+                return true;
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        queue q=new queue();
+        System.out.println(q.isempty());
+        q.add(12);
+        q.add(23);
+        q.add(34);
+        System.out.println(q.isempty());
+        q.display();
+        System.out.println(q.peek());
+        q.delete();
+        q.display();
+
+    }
+}
