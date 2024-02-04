@@ -1,0 +1,75 @@
+public class LinkListImplementationOfStack {
+    public static class node{    //here we create a user define datatype
+        int data;
+        node next;
+        node(int data){
+            this.data=data;
+        }
+    }
+    public static class Stack {   //here we are creating a user defined datastructure
+        node head = null;
+        int size = 0;
+
+        void push(int x) {
+            node temp = new node(x);
+            temp.next = head;
+            head = temp;
+            size++;
+        }
+
+        int pop() {
+            if (head == null) {
+                System.out.println("stack is null");
+                return -1;
+            }
+            node t = head;
+            head = head.next;
+            size--;
+            return t.data;
+        }
+
+        int peek() {
+            if (head == null) {
+                System.out.println("stack is null");
+                return -1;
+            }
+            return head.data;
+        }
+
+        int size() {
+            return size;
+        }
+
+        //we have to display the linklist in the reverse way
+        void recdis(node h){
+            //base case
+            if(h==null)
+                return ;
+            //recursive work
+            recdis(h.next);
+            System.out.print(h.data+" ");
+        }
+
+        void display(){   // " but here we have to display reverse because we are providing the last element as our hesad node"
+            recdis(head);
+            System.out.println();
+        }
+        boolean isstackempty(){
+            if(size==0)return true;
+            return false;
+        }
+    }
+    public static void main(String[] args) {
+        Stack st=new Stack();
+        st.push(10);
+        st.push(20);
+        st.push(30);
+        st.push(40);
+        st.display(); //10 20 30 40
+        System.out.println(st.size()); //4
+        st.pop();
+        st.display();//10 20 30
+        System.out.println(st.peek());//30
+        System.out.println(st.size());
+    }
+}
