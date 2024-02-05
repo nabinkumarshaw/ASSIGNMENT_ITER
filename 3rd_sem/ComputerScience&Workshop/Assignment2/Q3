@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image property</title>
+</head>
+<style>
+    .container{
+        border:2px solid black;
+        width: 50%;
+        background-color:cornsilk;
+    }
+    p{
+        text-align: center;
+        padding: 5px;
+    }
+    .img{
+        height: 350px;
+        width:550px;
+        margin:20px;
+        background-image: url("photo1.jpg");
+        background-size: cover;
+    }
+    .img:hover{
+        height: 350px;
+        width:550px;
+        margin:20px;
+        background-image: url("photo2.webp");
+        background-size: cover;
+    }
+</style>
+<body>
+    <div class="container">
+        <p>Image changes when there is hover effect on it....</p>
+        <div class="img">
+    </div>
+</body>
+</html>
