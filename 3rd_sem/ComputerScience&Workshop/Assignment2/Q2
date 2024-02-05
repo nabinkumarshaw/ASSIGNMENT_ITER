@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div use</title>
+</head>
+<style>
+    div{
+        border:1px solid black;
+        padding:3px;
+    }
+    .container{
+        display:inline-block;
+    }
+    .head{
+        display:inline-block;
+        width:70px;
+        background-color: lightgray;
+    }
+    .details{
+        display:inline-block;
+        width:300px;
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="head">Name:</div>
+        <div class="details">MayurRamgir</div>
+        <div class="head">Address:</div>
+        <div class="details">Boston, MA, USA</div>
+        <div class="head">Course:</div>
+        <div class="details">MS Computational Science & Engineering
+        </div>
+    </div>
+</body>
+</html>
