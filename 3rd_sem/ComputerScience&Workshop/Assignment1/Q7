@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="en">
+   <head> 
+    <title>A7</title>
+      <style> 
+        body{
+        background-image: url(images/download.jfif);
+        background-size: 1920px 1080px; background-repeat: no-repeat;
+        margin: auto;
+        }
+        .center{
+        height: 720px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="center">
+        <a href="https://www.soa.ac.in/">
+        <img src="https://images.squarespace-cdn.com/content/v1/57713a8e2994cae381dd86fe/1510405002757-FP2W9HV8ZAOHP21F306 A/SOA-PNG.png" alt="SOA" width="150px"> </a>
+      </div>
+    </body>
+</html>
