@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating a table</title>
+<style>
+    table,tr,th,td{
+        border:2px solid black;
+    }
+    tr:nth-child(2n){
+        background-color: dodgerblue;
+    }
+    tr:nth-child(2n+1){
+        background-color:aqua ;
+    }
+    .heading{
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <table>
+        <caption class="heading">Student Records</caption>
+        <tr class="row">
+            <th>Name</th>
+            <th>Age</th>
+            <th>sec</th>
+            <th>city</th>
+        </tr>
+        <tr>
+            <td>Nabin</td>
+            <td>19</td>
+            <td>27</td>
+            <td>Jamshedpur</td>
+        </tr>
+        <tr class="row">
+            <td>tushar</td>
+            <td>18</td>
+            <td>G-3</td>
+            <td>Ranchi</td>
+        </tr>
+        <tr>
+            <td>rishav</td>
+            <td>29</td>
+            <td>56</td>
+            <td>prayagraj</td>
+        </tr>
+    </table>
+</body>
+</html>
