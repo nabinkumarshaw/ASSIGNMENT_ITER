@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+<body>
+    <h1>My Personal info.</h1>
+    <ul>
+        <li>Name : Nabin kumar Shaw</li>
+        <li>Age : 19</li>
+        <li>Qualification : B.Tech(Pursuing)</li>
+        <li>Batch : 2022-2026</li>
+    </ul>
+    <h1>My Educational qualification</h1>
+    <ol type="a">
+        <li>Matriculation(C-10) -> TPS DAV, Baharagora -> Grade : 90.20%</li>
+        <li>Intermediate (C-12) -> Karim city,Jamshedpur -> Grade : 92.60%</li>
+        <li>B.Tech -> Siksha 'O' Anusandhan University, Bhubaneswar -> Grade : 9.88cgpa</li>
+    </ol>
+    <h1>My Address</h1>
+    <address>At-Mohulishole,<br> Ps-Dhalbhumgarh,<br> Dist-East Singhbhum,<br> Jharkhand</address>
+    <h1>About my self</h1>
+    <p>Hello! Myself Nabin kumar Shaw, a 2nd year graduating Student.</p>
+</body>
+</html>
