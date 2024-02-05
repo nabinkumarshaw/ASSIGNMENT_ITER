@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 4</title>
+    <style>
+        table, tr, th, td {
+            text-align: center;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Educational Qualification</caption>       //caption is used for giving a table heading
+        <tr>
+            <th>Sl.No.</th>
+            <th>Class</th>
+            <th>Institute</th>
+            <th>Percentage</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>Matriculation(C-10)</td>
+            <td>TPS DAV Public School, Baharagora</td>
+            <td>90.20%</td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>Intermediate(C-12)</td>
+            <td>Karim city college,jamshedpur</td>
+            <td>92.60%</td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>Graduation</td>
+            <td>Siksha 'O' Anusandhan University, Bhubaneswar</td>
+            <td>9.88 CGPA</td>
+        </tr>
+    </table>
+</body>
+</html>
