@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q7</title>
+    <style>
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        select option {
+            font-size: 14px;
+        }
+        .option-red {
+            color: red;
+        }
+        .option-green {
+            color: green;
+        }
+        .option-blue {
+            color: blue;
+        }
+        .option-bold {
+            font-weight: bold;
+        }
+        .option-italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown">
+        <option class="option-red">Red Text</option>
+        <option class="option-green">Green Text</option>
+        <option class="option-blue option-bold">Blue Bold Text</option>
+        <option class="option-italic">Italic Text</option>
+    </select>
+</body>
+</html>
