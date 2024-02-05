@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .container{
+            height: 500px;
+            width:350px;
+            background-color: gray;
+        }
+        .img{
+            height: 60px;
+            width:60px;
+            position: relative;
+            left:140px;
+            top:20px;
+        }
+        h2{
+            text-align: center;
+        }
+        label{
+            padding: 20px;
+            font-weight: bold;
+        }
+        input{
+            border:2px solid blue;
+            margin-top: 20px;
+        }
+        #cty{
+            width:200px;
+            border:2px solid blue;
+        }
+        .btn{
+            position: relative;
+            left:15px; 
+            top:20px;
+            width:85%;
+            padding:10px;
+            background-color: orange;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+            <img class="img" src="SOA.png" alt="soa">
+            <h2>Registration</h2>
+            <div class="info"></div>
+    <label for="name">UserName:</label>
+    <input type="text" id="name" placeholder="Enter Name...">
+    <br>
+    <label for="em">Email:</label>
+    <input type="text" id="em" placeholder="Enter Email...">
+    <br>
+    <label for="num">Mobile:</label>
+    <input type="text" id="num" placeholder="Enter Mobile.No...">
+    <br>
+    <label>Gender:</label>
+    <input type="radio" id="fml" val="fem" name="gn">
+    <label for="fml">Female</label>
+    <input type="radio" id="ml" val="mal" name="gn">
+    <label for="ml">Male</label>
+    <br><br>
+    <label for="cty">City:</label>
+    <select name="cty" id="cty">
+    <option val="jsr">jamshedpur</option>
+    <option val="bbsr">Bhubneswar</option>
+    <option val="rai">Raipur</option>
+    </select>
+    <br>
+    <label for="pass">password:</label>
+    <input type="password" id="pass" placeholder="Enter password...">
+    <br>
+    <button type="submit" class="btn">Sign Up</button>
+</div>
+</div>
+</body>
+</html>
