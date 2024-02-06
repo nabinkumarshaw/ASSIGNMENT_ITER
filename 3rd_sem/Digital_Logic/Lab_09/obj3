@@ -1,1 +1,85 @@
 
+SOURCE CODE
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity decode is
+    Port ( X : in STD_LOGIC;
+           Y : in STD_LOGIC;
+           Z : in STD_LOGIC;
+           D : inout std_logic_vector (7 downto 0);
+           S : out STD_LOGIC;
+           C : out STD_LOGIC);
+end decode;
+
+architecture Behavioral of decode is
+
+begin
+D(0)<= ((NOT X) AND (NOT Y)) AND (NOT Z);
+D(1)<= ((NOT X) AND (NOT Y)) AND (Z);
+D(2)<= ((NOT X) AND (Y)) AND (NOT Z);
+D(3)<= ((NOT X) AND ( Y)) AND ( Z);
+D(4)<= ((X) AND (NOT Y)) AND (NOT Z);
+D(5)<= ((X) AND (NOT Y)) AND (Z);
+D(6)<= ((X) AND (Y)) AND (NOT Z);
+D(7)<= ((X) AND (Y)) AND (Z);
+S<= D(1) OR D(2) OR D(4) OR D(7);
+C<= D(3) OR D(5) OR D(6) OR D(7);
+
+end Behavioral;
+
+
+
+TESTBENCH CODE
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity decode_tb is
+--  Port ( );
+end decode_tb;
+
+architecture Behavioral of decode_tb is
+component decode
+Port(X,Y,Z: in STD_LOGIC;
+ D: inout std_logic_vector (7 downto 0);
+ S,C: out STD_LOGIC);
+ end component;
+ signal X: std_logic;
+  signal Y: std_logic;
+   signal Z: std_logic;
+    signal S: std_logic;
+     signal C: std_logic;
+begin
+uut: decode port map(X=>X,Y=>Y,Z=>Z,S=>S,C=>C);
+stimulus:process
+begin
+X<='0'; Y<='0' ;Z<='0'; wait for 10ns;
+X<='0'; Y<='0' ;Z<='1'; wait for 10ns;
+X<='0'; Y<='1' ;Z<='0'; wait for 10ns;
+X<='0'; Y<='1' ;Z<='1'; wait for 10ns;
+X<='1'; Y<='0' ;Z<='0'; wait for 10ns;
+X<='1'; Y<='0' ;Z<='1'; wait for 10ns;
+X<='1'; Y<='1' ;Z<='0'; wait for 10ns;
+X<='1'; Y<='1' ;Z<='1'; wait for 10ns;
+end process;
+end Behavioral;
