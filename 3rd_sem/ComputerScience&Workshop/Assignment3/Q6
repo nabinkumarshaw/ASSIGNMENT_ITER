@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manipulation with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Table Manipulation with jQuery</h2>
+
+<button id="addRowBtn">Add Row</button>
+<input type="text" id="removeId" placeholder="Enter ID to Remove">
+<button id="removeElementBtn">Remove Element</button>
+
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Rows will be dynamically added here -->
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        // Change color on button click
+        $("#addRowBtn").click(function() {
+            $(this).css("color", getRandomColor());
+            addRow();
+        });
+
+        // Add row to the table
+        function addRow() {
+            var rowCount = $('#myTable tr').length;
+            var newRow = `<tr>
+                            <td>${rowCount}</td>
+                            <td>Name ${rowCount}</td>
+                            <td><button class="deleteBtn">Delete</button></td>
+                          </tr>`;
+            $('#myTable tbody').append(newRow);
+        }
+
+        // Remove row on delete button click
+        $(document).on('click', '.deleteBtn', function() {
+            $(this).closest('tr').remove();
+        });
+
+        // Remove element by ID
+        $("#removeElementBtn").click(function() {
+            var removeId = $("#removeId").val();
+            $("#" + removeId).remove();
+            $("#removeId").val(""); // Clear the input box
+        });
+
+        // Generate a random color
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    });
+</script>
+
+</body>
+</html>
