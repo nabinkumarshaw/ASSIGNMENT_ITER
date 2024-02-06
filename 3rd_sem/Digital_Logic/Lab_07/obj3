@@ -1,1 +1,31 @@
+SOURCE CODE
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity bcd_to_9s is
+    Port ( A3,A2,A1,A0 : in STD_LOGIC;
+           B3,B2,B1,B0 : out STD_LOGIC);
+end bcd_to_9s;
+
+architecture Behavioral of bcd_to_9s is
+
+begin
+B3<=((not A3) and (not A2) and (not A1));
+B2<=A2 xor A1;
+B1<=A1;
+B0<=not A0;
+end Behavioral;
+
+
+TEST BENCH
 
