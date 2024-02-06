@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+  table,tr,th{
+    border:2px solid black;
+    padding: 4px;
+  }
+</style>
+<script>
+    $(document).ready(function(){
+      $(".btn1").click(function(){
+        $(addrow()).append;
+      })
+    })
+</script>
+<body>
+    <table class="tab">
+        <tr class="row">
+            <th>sl.no</th>
+            <th>Name</th>
+            <th>class</th>
+        </tr>
+    </table>
+    function addrow(){
+      var Count = $('#myTable tr').length;
+            var newRow = `<tr>
+                            <td>${rowCount}</td>
+                            <td>Name ${rowCount}</td>
+                            <td><button class="deleteBtn">Delete</button></td>
+                          </tr>`;
+            $('#myTable tbody').append(newRow);
+    }
+    <button class="btn1">Add Row</button>
+</body>
+</html>
