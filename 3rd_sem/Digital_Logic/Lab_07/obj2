@@ -1,1 +1,78 @@
+SOURCE CODE
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity binarytogrey is
+    Port ( B3,B2,B1,B0 : in STD_LOGIC;
+           G3,G2,G1,G0 : out STD_LOGIC);
+end binarytogrey;
+
+architecture Behavioral of binarytogrey is
+
+begin
+G3<=B3;
+G2<=B3 xor B2;
+G1<=B2 xor B1;
+G0<=B1 xor B0;
+
+
+end Behavioral;
+
+TEST BENCH
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity binarytogrey_tb is
+   
+end binarytogrey_tb;
+
+architecture Behavioral of binarytogrey_tb is
+component binarytogrey is
+        Port ( B3,B2,B1,B0 : in STD_LOGIC;
+           G3,G2,G1,G0 : out STD_LOGIC);
+end component;
+signal B3,B2,B1,B0,G3,G2,G1,G0: STD_LOGIC;
+begin
+    uut:binarytogrey port map (B3=>B3,B2=>B2,B1=>B1,B0=>B0,G3=>G3,G2=>G2,G1=>G1,G0=>G0);
+    stim_proc:process
+    begin
+        B3<='0';B2<='0';B1<='0';B0<='0';wait for 10ns;
+        B3<='0';B2<='0';B1<='0';B0<='1';wait for 10ns;
+        B3<='0';B2<='0';B1<='1';B0<='0';wait for 10ns;
+        B3<='0';B2<='0';B1<='1';B0<='1';wait for 10ns;
+        B3<='0';B2<='1';B1<='0';B0<='0';wait for 10ns;
+        B3<='0';B2<='1';B1<='0';B0<='1';wait for 10ns;
+        B3<='0';B2<='1';B1<='1';B0<='0';wait for 10ns;
+        B3<='0';B2<='1';B1<='1';B0<='1';wait for 10ns;
+        B3<='1';B2<='0';B1<='0';B0<='0';wait for 10ns;
+        B3<='1';B2<='0';B1<='0';B0<='1';wait for 10ns;
+        B3<='1';B2<='0';B1<='1';B0<='0';wait for 10ns;
+        B3<='1';B2<='0';B1<='1';B0<='1';wait for 10ns;
+        B3<='1';B2<='1';B1<='0';B0<='0';wait for 10ns;
+        B3<='1';B2<='1';B1<='0';B0<='1';wait for 10ns;
+        B3<='1';B2<='1';B1<='1';B0<='0';wait for 10ns;
+        B3<='1';B2<='1';B1<='1';B0<='1';wait for 10ns;
+    wait;
+    end process;
+end Behavioral;
 
