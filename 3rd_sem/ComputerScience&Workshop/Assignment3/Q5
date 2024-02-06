@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Methods Example</title>
+  <style>
+    /* Add some styling for demonstration purposes */
+    #myElement {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px;
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // i. slideDown()
+      $("#myElement").slideDown(1500);
+
+      // ii. animate()
+      $("#myElement").animate({
+        width: "400px",
+        height: "200px",
+        opacity: 0.7
+      }, 2000);
+
+      // iii. fadeIn()
+      $("#myElement").fadeIn(1000);
+
+      // iv. hide()
+      $("#myElement").hide(1000);
+
+      // v. show()
+      $("#myElement").show(1000);
+
+      // vi. mouseenter()
+      $("#myElement").mouseenter(function () {
+        $(this).css("background-color", "black");
+      });
+
+      // vii. dblclick()
+      $("#myElement").dblclick(function () {
+        alert("Double clicked!");
+      });
+
+      // viii. mouseleave()
+      $("#myElement").mouseleave(function () {
+        $(this).css("background-color", "yellow");
+      });
+
+      // ix. attr()
+      $("#myElement").attr("title", "This is a jQuery element");
+
+      // x. html()
+      $("#myElement").html("<strong>Hello, jQuery!</strong>");
+    });
+  </script>
+</head>
+<body>
+
+  <div id="myElement">learning jquery</div>
+
+</body>
+</html>
