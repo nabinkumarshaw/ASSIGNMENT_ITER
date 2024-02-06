@@ -1,18 +1,21 @@
-package Assignment3;
-
-public class Assignment3hwQ3 {
-    //check weather string is palindrome or not
-
-    public static boolean palindrome(String s,int st,int end){
-        //base case
-        if(st==end)
-            return true;
-        //recursive work
-        if(s.charAt(st)!=s.charAt(end))
-            return false;
-        return palindrome(s,st+1,end-1);
-    }
-    public static void main(String[] args) {
-        System.out.println(palindrome("aaaaa",0,4));
-    }
-}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blur Event Example</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".field1").blur(function(){
+            alert("input 1 has lost its focus");
+        });
+    });
+</script>
+ <body>
+   <form>
+    Enter your name:<input class="field1" type="text">
+   </form>
+ </body>
+</html> 
