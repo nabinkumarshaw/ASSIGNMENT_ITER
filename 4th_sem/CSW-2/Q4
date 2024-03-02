@@ -1,0 +1,43 @@
+Q4. Write a Java code snippet comprising two classes: Laptop and Main. The Laptop class 
+defines private fields model and price, alongside setter methods for each attribute. 
+Additionally, it overrides the toString() method to return a string representation of the laptop's 
+model and price. In the Main class, create an instance of Laptop, setting its model using the 
+setter method. Then, print the laptop object using the toString() method. Describe the 
+functionality of the toString() method in the Laptop class and explain how it is utilized in the 
+Main class.
+
+
+ class Laptop{
+private String model;
+private int price;
+
+public void setModel(String model){
+    this.model=model;
+}
+public String getModel(){
+    return model;
+     }
+     public void setPrice(int price){
+         this.price=price;
+     }
+     public int getPrice(){
+    return price;
+     }
+     public String  toString(){
+    return model + " " + price;
+     }
+}
+public class AssignmentQ4 {
+
+    public static void main(String[] args) {
+    Laptop l1= new Laptop();
+    l1.setModel("Hp");
+    l1.setPrice(60000);
+    System.out.println(l1.getModel());
+    System.out.println(l1.getPrice());
+    Laptop l2= new Laptop();
+    l2.setModel("Dell");
+    l2.setPrice(80000);
+    System.out.println(l2.toString());
+    }
+}
