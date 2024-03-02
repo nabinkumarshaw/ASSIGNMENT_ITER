@@ -1,0 +1,54 @@
+Q8. Write a Java program that illustrates the concepts of interfaces, method overriding, and 
+method overloading. Begin by defining an interface named Vehicle with two abstract methods: 
+accelerate() and brake(). Then, create two classes, Car and Bicycle, both of which implement 
+the Vehicle interface. In the Car class, override the accelerate() and brake() methods to print 
+appropriate messages indicating the acceleration and braking actions for a car. Similarly, in the 
+Bicycle class, override the same methods to display messages specific to a bicycle's 
+acceleration and braking. Additionally, implement method overloading in both classes by 
+providing multiple versions of the accelerate() method, each accepting different parameters 
+such as speed and duration. Finally, create a Main class to instantiate objects of both Car and 
+Bicycle classes, test their overridden methods, and demonstrate method overloading by 
+invoking different versions of the accelerate() method
+
+
+class car{
+    private String model;
+    private int make;
+
+    car(String model,int make){
+        this.model=model;
+        this.make=make;
+    }
+    public void setModel(String models){
+        model=models;
+    }
+    public String getModel(){
+        return model;
+    }
+    public void setMake(int maked){
+        make=maked;
+    }
+    public int getMake(){
+        return make;
+    }
+}
+public class carTester {
+    public static void main(String[] args) {
+        car mycar1=new car("jeeta",20);
+        System.out.println("Model of mycar1 is "+mycar1.getModel());
+        System.out.println("Number of mycar1 made is "+mycar1.getMake());
+        car mycar2=new car(null,0);
+        mycar2.setModel("BMW");
+        mycar2.setMake(100);
+        System.out.println("Model of mycar2 is "+mycar2.getModel());
+        System.out.println("Number of mycar2 made is "+mycar2.getMake());
+    }
+}
+
+
+
+//output
+Model of mycar1 is jeeta
+Number of mycar1 made is 20
+Model of mycar2 is BMW
+Number of mycar2 made is 100
