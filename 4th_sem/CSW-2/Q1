@@ -40,3 +40,10 @@ public class carTester {
         System.out.println("Number of mycar2 made is "+mycar2.getMake());
     }
 }
+
+
+//output
+Model of mycar1 is jeeta
+Number of mycar1 made is 20
+Model of mycar2 is BMW
+Number of mycar2 made is 100
