@@ -43,3 +43,10 @@ public class AssignmentQ2 {
         System.out.println("The Area of an rectangle is "+r1.getArea());
     }
 }
+
+
+//output
+The perimeter of an rectangle is 18
+The Area of an rectangle is 20
+The perimeter of an rectangle is 14
+The Area of an rectangle is 10
