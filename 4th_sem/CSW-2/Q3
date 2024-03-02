@@ -40,3 +40,9 @@ attribute values
         point p2 = new point(p1);
     }
 }
+
+
+//output
+The value of x and y before copy constructor  5,8
+Inside the copy constructor
+The value of x and y after copy constructor  5,8
