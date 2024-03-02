@@ -41,3 +41,10 @@ public class AssignmentQ4 {
     System.out.println(l2.toString());
     }
 }
+
+//output
+Hp
+60000
+Dell 80000
+
+
