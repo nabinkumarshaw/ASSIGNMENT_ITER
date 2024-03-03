@@ -11,44 +11,51 @@ Bicycle classes, test their overridden methods, and demonstrate method overloadi
 invoking different versions of the accelerate() method
 
 
-class car{
-    private String model;
-    private int make;
-
-    car(String model,int make){
-        this.model=model;
-        this.make=make;
+interface vechile{
+    void accelerate();
+    void brake();
+}
+class cars implements vechile{
+    public void accelerate(){
+        System.out.println("accelerating the car");
     }
-    public void setModel(String models){
-        model=models;
+    void accelerate(int duration){
+        System.out.println("car runing for the duration "+duration +" hours");
     }
-    public String getModel(){
-        return model;
-    }
-    public void setMake(int maked){
-        make=maked;
-    }
-    public int getMake(){
-        return make;
+    public void brake(){
+        System.out.println("applying break in car");
     }
 }
-public class carTester {
+class bicycle implements vechile{
+    public void accelerate(){
+        System.out.println("accelerating the bicycle");
+    }
+     void accelerate(int speed){
+         System.out.println("The speed of the bicycle is "+ speed);
+     }
+    public void brake(){
+        System.out.println("applying break in cycle");
+    }
+}
+public class AssignmentQ8 {
     public static void main(String[] args) {
-        car mycar1=new car("jeeta",20);
-        System.out.println("Model of mycar1 is "+mycar1.getModel());
-        System.out.println("Number of mycar1 made is "+mycar1.getMake());
-        car mycar2=new car(null,0);
-        mycar2.setModel("BMW");
-        mycar2.setMake(100);
-        System.out.println("Model of mycar2 is "+mycar2.getModel());
-        System.out.println("Number of mycar2 made is "+mycar2.getMake());
+    cars c=new cars();
+    c.accelerate();
+    c.accelerate(5);
+    c.brake();
+    bicycle by=new bicycle();
+    by.accelerate();
+    by.accelerate(50);
+    by.brake();
     }
 }
 
 
 
 //output
-Model of mycar1 is jeeta
-Number of mycar1 made is 20
-Model of mycar2 is BMW
-Number of mycar2 made is 100
+accelerating the car
+car runing for the duration 5 hours
+applying break in car
+accelerating the bicycle
+The speed of the bicycle is 50
+applying break in cycle
