@@ -1,0 +1,83 @@
+2. Write a Java code snippet that comprises of a User class and an
+ArrayListUser class. The User class should define private fields for 
+name and age, along with a parameterized constructor and getter/setter
+methods for these attributes. Create an ArrayListUser class of User 
+objects. After addition of objects, the ArrayListUser class should 
+retrieve and print the name and age of users. Then, it should sort the user 
+according to age using getter methods and print the updated array list of 
+users.
+
+//code
+package Assignment_4_Generics_collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+class User {
+    private String name;
+    private int age;
+     User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+ class ArrayListUser {
+    private ArrayList <User> users;
+
+    public ArrayListUser() {
+        this.users = new ArrayList<>();
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void printUsers() {
+        System.out.println("Users:");
+        for (User user : users) {
+            System.out.println("Name: " + user.getName() + ", Age: " + user.getAge());
+        }
+    }
+    public void sortUsersByAge() {
+        Collections.sort(users, Comparator.comparingInt(User::getAge));
+    }
+}
+public class AssignmentQ2 {
+    public static void main(String[] args) {
+        ArrayListUser arrayListUser = new ArrayListUser();
+        arrayListUser.addUser(new User("priya", 25));
+        arrayListUser.addUser(new User("pinki", 30));
+        arrayListUser.addUser(new User("puja", 20));
+        System.out.println("Before sorting:");
+        arrayListUser.printUsers();
+        arrayListUser.sortUsersByAge();
+        System.out.println("After sorting by age:");
+        arrayListUser.printUsers();
+    }
+}
+
+
+
+//output
+Before sorting:
+Users:
+Name: priya, Age: 25
+Name: pinki, Age: 30
+Name: puja, Age: 20
+After sorting by age:
+Users:
+Name: puja, Age: 20
+Name: priya, Age: 25
+Name: pinki, Age: 30
