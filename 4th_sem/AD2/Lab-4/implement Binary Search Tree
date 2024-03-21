@@ -1,0 +1,116 @@
+Q)Write a java progrmme to implement Binary Search tree to store Strings and its frequency.Define methods for insertion of Strings,Searching a 
+String and Returning frequency of a String
+
+//Algorithm
+1.Node Class:
+
+Define a class Node containing:
+key: a string value.
+frequency: an integer representing the frequency of the key.
+left and right: references to left and right child nodes.
+
+2.BinarySearchTree Class:
+
+Initialize root as null in the constructor.
+
+3.insert Method:
+
+Insert a new string into the binary search tree.
+Utilize a recursive method insertRec:
+If the tree is empty, create a new node with the given key.
+Recur down the tree based on the comparison of keys.
+If the key already exists, increment its frequency.
+
+4.search Method:
+
+Search for a string in the binary search tree.
+Utilize a recursive method search.
+Return the node if found or null if not found.
+
+5.getFrequency Method:
+
+Get the frequency of a string in the binary search tree.
+Call the search method to find the node with the given key.
+If the node exists, return its frequency. Otherwise, return 0.
+
+6.Main Method:
+
+Create a BinarySearchTree object.
+Insert strings into the tree.
+Search for a specific string and print its frequency if found.
+Get the frequency of another string and print it.
+
+
+
+//code
+public class BinarySearchTree {
+    class Node {
+        String key;
+        int frequency;
+        Node left, right;
+
+        public Node(String item) {
+            key = item;
+            frequency = 1;
+            left = right = null;
+        }
+    }
+
+    Node root;
+
+    BinarySearchTree() {
+        root = null;
+    }
+
+   //insertion
+    void insert(String key) {
+        root = insertRec(root, key);
+    }
+    Node insertRec(Node root, String key) {
+        if (root == null) {
+            root = new Node(key);
+            return root;
+        }
+        if (key.compareTo(root.key) < 0)
+            root.left = insertRec(root.left, key);
+        else if (key.compareTo(root.key) > 0)
+            root.right = insertRec(root.right, key);
+        else
+            root.frequency++;
+        return root;
+    }
+    //search
+    Node search(Node root, String key) {
+        if (root == null || root.key.equals(key))
+            return root;
+        if (root.key.compareTo(key) < 0)
+            return search(root.right, key);
+        return search(root.left, key);
+    }
+
+    // get the frequency
+    int getFrequency(String key) {
+        Node node = search(root, key);
+        if (node != null)
+            return node.frequency;
+        else
+            return 0;
+    }
+    public static void main(String[] args) {
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.insert("apple");
+        tree.insert("banana");
+        tree.insert("apple");
+        tree.insert("orange");
+        tree.insert("banana");
+        String searchKey = "banana";
+        Node resultNode = tree.search(tree.root, searchKey);
+        if (resultNode != null)
+            System.out.println(searchKey + " found with frequency: " + resultNode.frequency);
+        else
+            System.out.println(searchKey + " not found");
+        String freqKey = "apple";
+        int frequency = tree.getFrequency(freqKey);
+        System.out.println("Frequency of " + freqKey + ": " + frequency);
+    }
+}
