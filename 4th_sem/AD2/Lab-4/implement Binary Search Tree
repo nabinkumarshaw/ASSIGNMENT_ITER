@@ -114,3 +114,8 @@ public class BinarySearchTree {
         System.out.println("Frequency of " + freqKey + ": " + frequency);
     }
 }
+
+
+//output
+banana found with frequency: 2
+Frequency of apple: 2
