@@ -1,0 +1,129 @@
+write a java programme to impement a hash table,Define methods for insertion of Strings,Searching a String and Returning frequency of a String
+
+//Algorithm
+1.HashNode Class:
+
+Define a class HashNode containing:
+key: a string representing the key.
+frequency: an integer representing the frequency of the key.
+Constructor to initialize key and frequency.
+
+2.HashTable Class:
+
+->Define a class HashTable.
+
+->Private Constants:
+	TABLE_SIZE: an integer representing the size of the hash table.
+->Private Variables:
+	table: an array of linked lists to store HashNode objects.
+->Constructor:
+	Initializes the table array with size TABLE_SIZE.
+	Initializes each element of the table with an empty linked list.
+->hashFunction Method:
+	Takes a string key as input.
+	Computes a hash value for the key using a simple hash function.
+	Returns the hash value modulo TABLE_SIZE.
+->insert Method:
+	Takes a string key as input.
+	Computes the hash value of the key.
+	Retrieves the linked list at the computed index from the table.
+	Iterates through the linked list to find the node with the given key.
+	If found, increments the frequency of the node.
+	If not found, adds a new HashNode with the key and frequency set to 1 to the linked list.
+->searchFrequency Method:
+	Takes a string key as input.
+	Computes the hash value of the key.
+	Retrieves the linked list at the computed index from the table.
+	Iterates through the linked list to find the node with the given key.
+	If found, returns the frequency of the node.
+	If not found, returns 0.
+
+->Main Class:
+
+Creates a HashTable object.
+Inserts strings into the hash table.
+Searches for frequencies of specific strings and prints the results.
+
+
+//code
+
+import java.util.LinkedList;
+
+class HashNode {
+    String key;
+    int frequency;
+
+    public HashNode(String key, int frequency) {
+        this.key = key;
+        this.frequency = frequency;
+    }
+}
+
+class HashTable {
+    private static final int TABLE_SIZE = 100;
+    private LinkedList<HashNode>[] table;
+
+    public HashTable() {
+        table = new LinkedList[TABLE_SIZE];
+        for (int i = 0; i < TABLE_SIZE; i++) {
+            table[i] = new LinkedList<>();
+        }
+    }
+
+    private int hashFunction(String key) {
+        // Simple hash function using ASCII values of characters
+        int hash = 0;
+        for (int i = 0; i < key.length(); i++) {
+            hash = (hash * 31 + key.charAt(i)) % TABLE_SIZE;
+        }
+        return hash;
+    }
+
+    public void insert(String key) {
+        int index = hashFunction(key);
+        LinkedList<HashNode> list = table[index];
+        for (HashNode node : list) {
+            if (node.key.equals(key)) {
+                node.frequency++;
+                return;
+            }
+        }
+        list.add(new HashNode(key, 1));
+    }
+
+    public int searchFrequency(String key) {
+        int index = hashFunction(key);
+        LinkedList<HashNode> list = table[index];
+        for (HashNode node : list) {
+            if (node.key.equals(key)) {
+                return node.frequency;
+            }
+        }
+        return 0;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashTable hashTable = new HashTable();
+
+        // Inserting strings into the hash table
+        hashTable.insert("apple");
+        hashTable.insert("banana");
+        hashTable.insert("apple");
+        hashTable.insert("orange");
+        hashTable.insert("banana");
+
+        // Searching for frequencies of strings
+        System.out.println("Frequency of 'apple': " + hashTable.searchFrequency("apple")); // Output: 2
+        System.out.println("Frequency of 'banana': " + hashTable.searchFrequency("banana")); // Output: 2
+        System.out.println("Frequency of 'orange': " + hashTable.searchFrequency("orange")); // Output: 1
+        System.out.println("Frequency of 'grape': " + hashTable.searchFrequency("grape")); // Output: 0 (not found)
+    }
+}
+
+//output
+Frequency of 'apple': 2
+Frequency of 'banana': 2
+Frequency of 'orange': 1
+Frequency of 'grape': 0
