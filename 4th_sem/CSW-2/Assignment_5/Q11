@@ -1,0 +1,38 @@
+11. Write a Java program that computes the value of the function log(sin(x) + cos(x)) / 
+(tan(x) - cot(x)) for a given value of x. Ensure proper handling of exceptions that may 
+occur due to invalid mathematical operations
+
+//code
+
+import java.util.Scanner;
+
+public class Q11 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the value of x in degrees: ");
+            double x_deg = sc.nextDouble();
+            double x_rad = Math.toRadians(x_deg);
+
+            double num = Math.log(Math.sin(x_rad) + Math.cos(x_rad));
+            double den = Math.tan(x_rad) - (1 / Math.tan(x_rad));
+
+            if (Double.isNaN(num) || Double.isNaN(den) || den == 0) {
+                throw new ArithmeticException("Invalid mathematical operation");
+            }
+
+            double result = num / den;
+            System.out.println("Result: " + result);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            sc.close();
+        }
+    }
+}
+
+//output
+Enter the value of x in degrees: 78
+Result: 0.03798608602161271
+
