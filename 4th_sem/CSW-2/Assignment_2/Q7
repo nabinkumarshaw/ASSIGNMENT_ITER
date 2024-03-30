@@ -1,0 +1,78 @@
+Q7. Consider a scenario where you are tasked with developing a simple banking application 
+using Java, employing the concept of polymorphism. Your application should consist of three 
+classes: Account, SavingsAccount, and CurrentAccount. The Account class serves as the 
+base class with private attributes for account number and balance, along with abstract methods 
+for deposit and withdrawal. The SavingsAccount class, a subclass of Account, should include 
+an additional attribute for interest rate and override the deposit method to calculate interest, as 
+well as override the withdrawal method to ensure a sufficient balance. Similarly, the 
+CurrentAccount class, also a subclass of Account, should incorporate an overdraft limit 
+attribute and override the withdrawal method to check the overdraft limit. Implement the 
+classes as described, ensuring proper encapsulation and abstraction. Finally, create a 
+BankingApplication class (Main) to demonstrate the polymorphic behavior by creating 
+instances of both SavingsAccount and CurrentAccount, testing deposit and withdrawal 
+operations, and displaying account details
+
+
+    abstract class  Account{
+    private int accountNumber;
+    private int balance;
+
+    public void setbalance(int balance){
+        this.balance=balance;
+    }
+    public int getbalance(){
+        return balance;
+    }
+        abstract void deposite();
+        abstract void withdrawl();
+    }
+    class SavingsAccount extends Account{
+    int interest_rate;
+    public void setInterest_rate(int  interest_rate){
+        this.interest_rate=interest_rate;
+    }
+    void deposite(){
+        int interest=getbalance()*interest_rate/100;
+        System.out.println("The interest deposited is "+ interest );
+    }
+    void withdrawl(){
+        System.out.println("withdraw amount is " +interest_rate);
+    }
+
+    }
+    class  CurrentAccount extends  Account{
+    int  overdraft_limit;
+        public void setOverdraft_limit(int  overdraft_limit){
+            this.overdraft_limit=overdraft_limit;
+        }
+        void deposite(){
+            int interest=getbalance()*overdraft_limit;
+            System.out.println("The amount deposited is "+interest );
+        }
+        void withdrawl(){
+            System.out.println("withdraw amount is " +overdraft_limit);
+        }
+
+    }
+    public class AssignmentQ7 {
+    public static void main(String[] args) {
+    SavingsAccount sa=new SavingsAccount();
+    CurrentAccount ca=new CurrentAccount();
+    sa.setbalance(20000);
+    sa.setInterest_rate(6);
+    ca.setbalance(290000);
+    ca.setOverdraft_limit(5);
+    sa.deposite();
+    sa.withdrawl();
+    ca.deposite();
+    ca.withdrawl();
+    }
+}
+
+
+
+//output
+The interest deposited is 1200
+withdraw amount is 6
+The amount deposited is 1450000
+withdraw amount is 5
