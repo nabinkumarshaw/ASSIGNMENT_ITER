@@ -1,0 +1,27 @@
+Q20)Develop a recursive algorithm implemented in Java that traverses or manipulates 
+arrays. Introduce scenarios where the recursion reaches beyond the bounds of the array, 
+resulting in ArrayIndexOutOfBoundsException. Your task is to handle these 
+exceptions within the recursive algorithm and ensure proper termination of recursion
+
+//code
+package Assignment_5;
+
+public class Q20 {
+    public static void main(String[] args) {
+        int[] arr = {5, 8, 3, 12, 7};
+        int max = findMax(arr, 0);
+        System.out.println("Maximum element in the array: " + max);
+    }
+
+    public static int findMax(int[] arr, int idx) {
+        if (idx == arr.length) {
+            return Integer.MIN_VALUE;
+        }
+        int curr_ele = arr[idx];
+        int max_rest = findMax(arr, idx + 1);
+        return Math.max(curr_ele, max_rest);
+    }
+}
+
+//output
+Maximum element in the array: 12
