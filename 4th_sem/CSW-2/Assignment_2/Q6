@@ -1,0 +1,84 @@
+Q6. Library System Assignment:
+Task: Develop a Java program for a library system incorporating encapsulation, abstraction, 
+and inheritance.
+i. LibraryResource Class:
+ - Abstract class with private attributes for title and author.
+ - Constructor, getters, setters, and an abstract method displayDetails().
+ii. Book Class:
+ - Subclass of LibraryResource with additional attribute pageCount.
+ - Constructor, getters, setters, and displayDetails() method override.
+iii. Magazine Class:
+ - Subclass of LibraryResource with additional attribute issueDate.
+ - Constructor, getters, setters, and displayDetails() method override.
+iv. DVD Class:
+ - Subclass of LibraryResource with additional attribute duration.
+ - Constructor, getters, setters, and displayDetails() method override.
+v. LibrarySystem Class (Main):
+ - Instantiate various library resources (e.g., Book, Magazine, DVD).
+ - Call displayDetails() for each instance to show resource information
+
+
+abstract class LibraryResource{
+    private String title;
+    private String author;
+    //getters, setters
+    public void SetTitle(String title){
+        this.title=title;
+    }
+    public void SetAuthor(String author){
+        this.author=author;
+    }
+    public String getTitle(){
+        return title;
+    }
+    public String getAuthor(){
+        return author;
+    }
+    abstract void displayDetails();
+}
+class book extends LibraryResource{
+    int pageCount;
+    //- Constructor, getters, setters, and displayDetails() method override.
+    book(int pageCount){
+        this.pageCount=pageCount;
+    }
+    void displayDetails(){
+        System.out.println("Number of page is "+pageCount);
+    }
+}
+class magazine extends LibraryResource{
+    String  issueDate;
+
+    magazine (String issuedate){
+        this.issueDate=issuedate;
+    }
+    void displayDetails(){
+        System.out.println("Issue date is  "+issueDate);
+    }
+}
+class DVD extends LibraryResource{
+    int duration;
+    DVD(int duration){
+        this.duration=duration;
+    }
+    void displayDetails(){
+        System.out.println("Duration time is "+duration + " hours");
+    }
+}
+public class AssignmentQ6 {
+    public static void main(String[] args) {
+    book b=new book(100);
+    magazine m=new magazine("19-09-2023");
+    DVD d=new DVD(2);
+    b.displayDetails();
+    m.displayDetails();
+    d.displayDetails();
+    }
+}
+
+
+
+//output
+Number of page is 100
+Issue date is  19-09-2023
+Duration time is 2 hours
