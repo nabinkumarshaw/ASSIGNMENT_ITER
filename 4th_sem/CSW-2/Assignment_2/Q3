@@ -1,0 +1,48 @@
+Q3. Write a Java program that defines a 'Point' class with attributes 'X' and 'Y', and includes a 
+parameterized constructor to initialize these attributes. Implement a copy constructor to 
+create a new point object with the same attribute values. Ensure that modifications made to one 
+object do not affect the other. Utilize getter and setter methods to retrieve and update the 
+attribute values
+
+
+    class point{
+        int val_x;
+        int val_y;
+
+        point(int x,int y){
+            val_x=x;
+            val_y=y;
+            System.out.println("The value of x and y before copy constructor  "+ val_x +","+ val_y);
+        }
+
+        public void setX(int x){
+            val_x=x;
+        }
+        public void setY(int y){
+            val_y=y;
+        }
+        public int getX(){
+            return  val_x;
+        }
+        public int getY(){
+            return  val_y;
+        }
+
+        point(point p){
+            System.out.println("Inside the copy constructor");
+            System.out.println("The value of x and y after copy constructor  "+p.getX() +","+ p.getY());
+
+        }
+    }
+    public class AssignmentQ3 {
+    public static void main(String[] args) {
+        point p1 = new point(5,8);
+        point p2 = new point(p1);
+    }
+}
+
+
+//output
+The value of x and y before copy constructor  5,8
+Inside the copy constructor
+The value of x and y after copy constructor  5,8
