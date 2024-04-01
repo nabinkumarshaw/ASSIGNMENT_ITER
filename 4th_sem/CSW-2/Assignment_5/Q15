@@ -10,33 +10,28 @@ import java.util.Scanner;
 public class Q15 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        try {
             System.out.print("Enter a number: ");
             String input = sc.nextLine();
-
-            // Outer try-catch block to handle NumberFormatException
             try {
                 int num = Integer.parseInt(input);
-
-                // Inner try-catch block to handle ArithmeticException
                 try {
                     int result = 10 / num;
                     System.out.println("Result: " + result);
-                } catch (ArithmeticException e) {
+                }
+                catch (ArithmeticException e) {
                     System.out.println("Error: ArithmeticException - Division by zero");
                 }
-            } catch (NumberFormatException e) {
+            }
+            catch (NumberFormatException e) {
                 System.out.println("Error: NumberFormatException - Invalid input");
             }
-        } catch (Exception e) {
-            System.out.println("Error: Something went wrong");
-        } finally {
-            sc.close();
-        }
     }
 }
 
+
+
 //output
-Enter a number: 45
-Result: 0
+Enter a number: jcfv
+Error: NumberFormatException - Invalid input
+Enter a number: 0
+Error: ArithmeticException - Division by zero
