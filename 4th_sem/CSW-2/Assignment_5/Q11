@@ -15,24 +15,22 @@ public class Q11 {
             double x_deg = sc.nextDouble();
             double x_rad = Math.toRadians(x_deg);
 
-            double num = Math.log(Math.sin(x_rad) + Math.cos(x_rad));
-            double den = Math.tan(x_rad) - (1 / Math.tan(x_rad));
-
-            if (Double.isNaN(num) || Double.isNaN(den) || den == 0) {
+            double res = Math.log((Math.sin(x_rad) + Math.cos(x_rad))/Math.tan(x_rad) - (1 / Math.tan(x_rad)));
+            if (Double.isNaN(res)) {
                 throw new ArithmeticException("Invalid mathematical operation");
             }
-
-            double result = num / den;
-            System.out.println("Result: " + result);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
-            sc.close();
+            System.out.println("Result: " + res);
         }
+        catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 }
 
 //output
 Enter the value of x in degrees: 78
 Result: 0.03798608602161271
+Enter the value of x in degrees: 0
+Error: Invalid mathematical operation
 
