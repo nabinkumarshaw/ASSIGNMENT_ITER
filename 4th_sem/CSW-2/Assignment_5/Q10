@@ -33,7 +33,7 @@ public class Q10 {
 
 /**
  * OUTPUT
- * Enter the value of x in radians :
- * Nabin
- * An error occurred: null
+ Enter the value of x in radians : 
+ 2 * MATH.PI
+ Result of (sin(x) + cos(x)) / tan(x) : -0.22569409307820762
  */
