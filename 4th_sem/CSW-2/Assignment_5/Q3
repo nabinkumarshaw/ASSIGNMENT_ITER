@@ -5,25 +5,33 @@ it takes a String message as its constructor argument. Your task is to create th
 exception class and demonstrate its usage in a Java program.
 
 //code
-public class Q03 extends RuntimeException {
+package Assignment_5;
 
-    public Q03(String msg) {
-        super(msg);
+class CustomNullPointerException extends Exception{
+    CustomNullPointerException(String mssg) {
+        super(mssg);
     }
-
+}
+public class Q3{
     public static void main(String[] args) {
-        String input = null;
-        try {
-            if(input == null) {
-                throw new Q3("Input string is null!");
+        String inp=null;
+        try{
+            if(inp==null){
+                throw new CustomNullPointerException("Input value cannot be null");
             }
-        } catch (Q03 e) {
-            System.err.println("CustomNullPointerException occurred : "+e.getMessage());
+            else{
+                System.out.println("Input value is "+inp);
+            }
+        }
+        catch(CustomNullPointerException e){
+            System.out.println(e);
         }
     }
 }
 
+
+
 /**
  * OUTPUT
- * CustomNullPointerException occurred : Input string is null!
+ * CustomNullPointerException: Input value cannot be null
  */
