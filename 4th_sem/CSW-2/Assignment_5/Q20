@@ -4,24 +4,33 @@ resulting in ArrayIndexOutOfBoundsException. Your task is to handle these
 exceptions within the recursive algorithm and ensure proper termination of recursion
 
 //code
-package Assignment_5;
 
 public class Q20 {
-    public static void main(String[] args) {
-        int[] arr = {5, 8, 3, 12, 7};
-        int max = findMax(arr, 0);
-        System.out.println("Maximum element in the array: " + max);
+        public static void main(String[] args) {
+            int[] arr = {1, 2, 3, 4, 5};
+            traverseArray(arr, 0);
+        }
+
+        public static void traverseArray(int[] arr, int index) {
+            try {
+                System.out.println("Element at index " + index + ": " + arr[index]);
+                traverseArray(arr, index + 1);
+            }
+            catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Reached end of array or index out of bounds.");
+            }
+        }
     }
 
-    public static int findMax(int[] arr, int idx) {
-        if (idx == arr.length) {
-            return Integer.MIN_VALUE;
-        }
-        int curr_ele = arr[idx];
-        int max_rest = findMax(arr, idx + 1);
-        return Math.max(curr_ele, max_rest);
-    }
-}
+
+
+
+
 
 //output
-Maximum element in the array: 12
+Element at index 0: 1
+Element at index 1: 2
+Element at index 2: 3
+Element at index 3: 4
+Element at index 4: 5
+Reached end of array or index out of bounds.
