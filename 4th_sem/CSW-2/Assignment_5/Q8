@@ -29,7 +29,11 @@ public class Q08 {
 
 /**
  * OUTPUT
- * Enter an integer number :
+ // Enter an integer number :
  * 67
  * Square root of 67 is: 8.18535277187245
+
+//Enter an integer number : 
+-90
+ArithmeticException occurred: java.lang.ArithmeticException: Cannot calculate square root of a negative number!
  */
