@@ -6,7 +6,6 @@ display it.
 
 
 //code
-
 package Assignment_4_Generics_collections;
 
 import java.util.Iterator;
@@ -47,21 +46,20 @@ class Address {
 }
 public class AssignmentQ7 {
     public static void main(String[] args) {
-        TreeMap<String, Address> addressMap = new TreeMap<>();
+        TreeMap<String, Address> amap = new TreeMap<>();
 
-        addressMap.put("kohli", new Address("1A", "Banglore", "CityA"));
-        addressMap.put("dohni", new Address("2B", "Ranchi", "CityB"));
-        addressMap.put("Rohit", new Address("3C", "Mumbia", "CityC"));
+        amap.put("kohli", new Address("1A", "Banglore", "CityA"));
+        amap.put("dohni", new Address("2B", "Ranchi", "CityB"));
+        amap.put("Rohit", new Address("3C", "Mumbia", "CityC"));
 
         System.out.println("Addresses in the TreeMap:");
-        Iterator<String> iterator = addressMap.keySet().iterator();
-        while (iterator.hasNext()) {
-            String name = iterator.next();
-            System.out.println("Name: " + name + ", Address: " + addressMap.get(name));
+        Iterator<String> itr = amap.keySet().iterator();
+        while (itr.hasNext()) {
+            String name = itr.next();
+            System.out.println("Name: " + name + ", Address: " + amap.get(name));
         }
     }
 }
-
 
 
 //output
