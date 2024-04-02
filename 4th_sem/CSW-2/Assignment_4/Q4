@@ -46,8 +46,8 @@ class Student {
     }
     @Override
     public boolean equals(Object obj) {
-        Student student = (Student) (obj);
-        return age == student.age && Double.compare(student.mark, mark) == 0 && name.equals(student.name);
+        Student stu = (Student) (obj);
+        return this.age == stu.age && this.mark==stu.mark && this.name.equals(stu.name);
     }
 }
 
@@ -58,31 +58,31 @@ public class AssignmentQ4 {
         studentList.add(new Student("shanu", 21, 78.0));
         studentList.add(new Student("tushar", 22, 92.5));
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Students in the list:");
         displayList(studentList);
         System.out.println("Enter student details to check existence (name, age, mark):");
-        String name = scanner.next();
-        int age = scanner.nextInt();
-        double mark = scanner.nextDouble();
+        String name = sc.next();
+        int age = sc.nextInt();
+        double mark = sc.nextDouble();
         Student studentToCheck = new Student(name, age, mark);
         checkStudentExistence(studentList, studentToCheck);
         System.out.println("Enter student details to remove (name, age, mark):");
-        name = scanner.next();
-        age = scanner.nextInt();
-        mark = scanner.nextDouble();
+        name = sc.next();
+        age = sc.nextInt();
+        mark = sc.nextDouble();
         Student studentToRemove = new Student(name, age, mark);
         removeStudent(studentList, studentToRemove);
         System.out.println("Number of students in the list: " + studentList.size());
         System.out.println("Checking equality of students:");
-        Student student1 = new Student("Alice", 20, 85.5);
-        Student student2 = new Student("Alice", 20, 85.5);
+        Student student1 = new Student("Nabin", 20, 85.5);
+        Student student2 = new Student("Nabin", 20, 85.5);
         System.out.println("Equality of student1 and student2: " + student1.equals(student2));
     }
 
     public static void displayList(LinkedList<Student> list) {
-        for (Student student : list) {
-            System.out.println("Name: " + student.getName() + ", Age: " + student.getAge() + ", Mark: " + student.getMark());
+        for (Student stu : list) {
+            System.out.println("Name: " + stu.getName() + ", Age: " + stu.getAge() + ", Mark: " + stu.getMark());
         }
     }
     public static void checkStudentExistence(LinkedList<Student> list, Student studentToCheck) {
