@@ -17,6 +17,7 @@ package Assignment_4_Generics_collections;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//using comparable we are sorting
 class Car implements Comparable<Car> {
     private int modalNo;
     private String name;
@@ -38,7 +39,7 @@ class Car implements Comparable<Car> {
     }
     @Override
     public int compareTo(Car car) {
-        return Integer.compare(this.stock, car.stock);
+        return this.stock- car.stock;
     }
     public String toString() {
         return modalNo + " " + name + " " + stock;
