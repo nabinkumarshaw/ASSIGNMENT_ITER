@@ -34,7 +34,7 @@ class User {
     }
 }
  class ArrayListUser {
-    private ArrayList <User> users;
+     ArrayList <User> users;
 
     public ArrayListUser() {
         this.users = new ArrayList<>();
@@ -51,15 +51,21 @@ class User {
         }
     }
     public void sortUsersByAge() {
-        Collections.sort(users, Comparator.comparingInt(User::getAge));
+        Collections.sort(users, new userscomparator());
+    }
+}
+
+ class userscomparator implements Comparator<User>{
+    public int compare(User u1,User u2){
+        return u1.getAge()- u2.getAge();
     }
 }
 public class AssignmentQ2 {
     public static void main(String[] args) {
         ArrayListUser arrayListUser = new ArrayListUser();
         arrayListUser.addUser(new User("priya", 25));
-        arrayListUser.addUser(new User("pinki", 30));
-        arrayListUser.addUser(new User("puja", 20));
+        arrayListUser.addUser(new User("Sonu", 30));
+        arrayListUser.addUser(new User("Anu", 20));
         System.out.println("Before sorting:");
         arrayListUser.printUsers();
         arrayListUser.sortUsersByAge();
@@ -74,10 +80,10 @@ public class AssignmentQ2 {
 Before sorting:
 Users:
 Name: priya, Age: 25
-Name: pinki, Age: 30
-Name: puja, Age: 20
+Name: Sonu, Age: 30
+Name: Anu, Age: 20
 After sorting by age:
 Users:
-Name: puja, Age: 20
+Name: Anu, Age: 20
 Name: priya, Age: 25
-Name: pinki, Age: 30
+Name: Sonu, Age: 30
