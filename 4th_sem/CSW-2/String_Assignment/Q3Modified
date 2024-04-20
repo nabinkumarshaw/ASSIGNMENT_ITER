@@ -1,0 +1,29 @@
+//code
+public class Q3own {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer("I Nabin kumar ");
+        //1)append in a given string
+        sb.append("shaw");
+        System.out.println(sb);
+        //2)Insert a given string at a specific position
+        sb.insert(2,"Myself ");
+        System.out.println(sb);
+        //3)Delete a portion between two specified text
+        sb.delete(0,1);
+        System.out.println(sb);
+        //4)Replace a portion of the text between two specified index with a string
+        sb.replace(8,13,"Mohan");
+        System.out.println(sb);
+        //5)Reverse the entire text
+        sb.reverse();
+        System.out.println(sb);
+
+    }
+}
+
+//output
+I Nabin kumar shaw
+I Myself Nabin kumar shaw
+Myself Nabin kumar shaw
+Myself Mohan kumar shaw
+wahs ramuk nahoM flesyM 
