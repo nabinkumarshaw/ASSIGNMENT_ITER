@@ -1,0 +1,34 @@
+2.	Read from a File: Write a Java application that opens the "diary.txt" file created in the previous question and displays its content on the
+console. The program should handle cases where the file does not exist by displaying an appropriate error message.
+
+//code
+package File_Management;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class Q2 {
+    public static void main(String[] args) {
+        File myfile = new File("diary.txt");
+
+        // Check if the file exists
+        if (!myfile.exists()) {
+            System.out.println("The file 'diary.txt' does not exist.");
+            System.exit(12);
+        }
+
+        try {
+            // Create a Scanner object to read from the file
+            Scanner sc=new Scanner(myfile);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                System.out.println(line);
+            }
+            sc.close();
+        }
+        catch (Exception e) {
+            System.out.println("An error occurred while reading the file.");
+        }
+    }
+}
+
