@@ -1,0 +1,35 @@
+8.	Rename a File: Develop a Java application that renames a specified file. The program should request the current file name and the new file name
+from the user, renaming the file accordingly and confirming the action upon completion.
+
+//code
+package File_Management;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class Q8 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the current file name:");
+        String currentFileName = sc.nextLine();
+        System.out.println("Enter the new file name:");
+        String newFileName = sc.nextLine();
+        File currentFile = new File(currentFileName);
+        File newFile = new File(newFileName);
+        // Check if the current file exists
+        if (!currentFile.exists()) {
+            System.out.println("The specified file does not exist.");
+            System.exit(1);
+        }
+        // Rename the file
+        boolean renamed = currentFile.renameTo(newFile);
+
+        // Check if the file renaming was successful
+        if (renamed) {
+            System.out.println("File '" + currentFileName + "' has been successfully renamed to '" + newFileName + "'.");
+        } else {
+            System.out.println("Failed to rename the file '" + currentFileName + "' to '" + newFileName + "'.");
+        }
+    }
+}
+
