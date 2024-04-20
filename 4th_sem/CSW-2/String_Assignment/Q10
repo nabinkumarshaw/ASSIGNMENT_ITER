@@ -1,0 +1,79 @@
+10.	Interactive String Explorer: Prompt the user for a string. Display a menu with options to perform various operations: convert to lowercase/uppercase, search for a character/index,
+or concatenate with another string. Based on user selection, perform the appropriate string operation and show the result.
+
+//code
+import java.util.Scanner;
+
+public class Q10 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Prompt the user for a string
+        System.out.println("Enter a string:");
+        String inputString = sc.nextLine();
+
+        // Display a menu with options
+        char choice;
+        do {
+            System.out.println("\nString Explorer Menu:");
+            System.out.println("a. Convert to lowercase");
+            System.out.println("b. Convert to uppercase");
+            System.out.println("c. Search for a character");
+            System.out.println("d. Search for a character index");
+            System.out.println("e. Concatenate with another string");
+            System.out.println("f. Exit");
+            System.out.println("Enter your choice:");
+
+            choice = sc.next().charAt(0);
+
+
+            switch (choice) {
+                case 'a':
+                    System.out.println("String in lowercase: " + inputString.toLowerCase());
+                    break;
+                case 'b':
+                    System.out.println("String in uppercase: " + inputString.toUpperCase());
+                    break;
+                case 'c':
+                    searchForCharacter(inputString, sc);
+                    break;
+                case 'd':
+                    searchForCharacterIndex(inputString, sc);
+                    break;
+                case 'e':
+                    System.out.println("Enter the string to concatenate:");
+                    String concatString = sc.nextLine();
+                    System.out.println("Concatenated string: " + inputString.concat(concatString));
+                    break;
+                case 'f':
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again.");
+                    break;
+            }
+        } while (choice != 'f');
+    }
+
+    private static void searchForCharacter(String inputString, Scanner sc) {
+        System.out.println("Enter the character to search:");
+        char searchChar = sc.next().charAt(0);
+        if (inputString.indexOf(searchChar) != -1) {
+            System.out.println("Character '" + searchChar + "' found in the string.");
+        } else {
+            System.out.println("Character '" + searchChar + "' not found in the string.");
+        }
+    }
+
+    private static void searchForCharacterIndex(String inputString, Scanner sc) {
+        System.out.println("Enter the character to search for its index:");
+        char searchChar = sc.next().charAt(0);
+        int index = inputString.indexOf(searchChar);
+        if (index != -1) {
+            System.out.println("Index of character '" + searchChar + "': " + index);
+        } else {
+            System.out.println("Character '" + searchChar + "' not found in the string.");
+        }
+    }
+}
+
