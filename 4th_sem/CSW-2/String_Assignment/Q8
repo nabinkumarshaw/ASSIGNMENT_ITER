@@ -1,0 +1,50 @@
+Q8	String Concatenation and Character Retrieval: Take two strings from the user. Concatenate them using the string method and the + operator, then display both results. 
+Ask the user for an index number, then display the character at that index
+
+//code
+import java.util.Scanner;
+
+public class Q8 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string:");
+        String firstString = sc.nextLine();
+        System.out.println("Enter the second string:");
+        String secondString = sc.nextLine();
+
+        // Concatenate the strings using the string method
+        String concatenatedStringMethod = firstString.concat(secondString);
+
+        // Concatenate the strings using the + operator
+        String concatenatedStringOperator = firstString + secondString;
+
+        // Display both results
+        System.out.println("Concatenated String (Using String Method): " + concatenatedStringMethod);
+        System.out.println("Concatenated String (Using + Operator): " + concatenatedStringOperator);
+
+        // Ask the user for an index number
+        System.out.println("Enter an index number to retrieve the character:");
+        int index = sc.nextInt();
+
+        // Display the character at the specified index
+        if (index >= 0 && index < concatenatedStringMethod.length()) {
+            char characterAtIndex = concatenatedStringMethod.charAt(index);
+            System.out.println("Character at index " + index + ": " + characterAtIndex);
+        } else {
+            System.out.println("Invalid index number. Please enter a valid index within the string length.");
+        }
+    }
+}
+
+
+//output
+
+Enter the first string:
+Rishab
+Enter the second string:
+pant
+Concatenated String (Using String Method): Rishabpant
+Concatenated String (Using + Operator): Rishabpant
+Enter an index number to retrieve the character:
+3
+Character at index 3: h
