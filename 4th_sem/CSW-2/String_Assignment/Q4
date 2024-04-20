@@ -1,0 +1,34 @@
+Q4.	Create a Java program that uses StringBuilder to perform a series of text manipulations on a user-provided string. The program should allow users to:
+a.	Add a substring at a specified position.
+b.	Remove a range of characters from the string.
+c.	Modify a character at a specified index.
+d.	Concatenate another string at the end.
+e.	Display the current string after each operation.
+The program should repeatedly prompt the user to choose an operation until they decide to exit. After each operation, it should display the modified string, demonstrating the mutable nature of StringBuilder.
+
+//code
+public class Q4 {
+    public static void main(String[] args) {
+        StringBuilder sb=new StringBuilder("hello world");
+        //a.	Add a substring at a specified position.
+        String sub="beautiful ";
+        sb.insert(6,sub);
+        System.out.println(sb);
+        //b.Remove a range of characters from the string.
+        sb.delete(0,5);
+        System.out.println(sb);
+        //c.Modify a character at a specified index
+        sb.replace(1,2,"B");
+        System.out.println(sb);
+        //d.Concatenate another string at the end.
+        sb.append(" Glory");
+        System.out.println(sb);
+    }
+}
+
+
+//output
+hello beautiful world
+ beautiful world
+ Beautiful world
+ Beautiful world Glory
