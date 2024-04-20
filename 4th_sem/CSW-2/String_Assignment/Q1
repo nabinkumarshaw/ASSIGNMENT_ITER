@@ -1,0 +1,34 @@
+1.	Write a Java program that illustrates the difference between using string literals and the new keyword for creating String objects. 
+Your program should demonstrate the memory usage implications and how string comparison behaves differently in each case.
+
+//code
+
+
+public class Q1 {
+    public static void main(String[] args) {
+        // Using string literals
+        String str1 = "Hello";
+        String str2 = "Hello";
+
+        // Using new keyword
+        String str3 = new String("Hello");
+        String str4 = new String("Hello");
+        // Comparing strings
+        System.out.println((str1 == str2)); // Should be true
+        System.out.println((str1 == str3)); // Should be false
+        System.out.println((str3 == str4)); // Should be false
+
+        // Comparing string content
+        System.out.println(str1.equals(str2)); // Should be true
+        System.out.println(str1.equals(str3)); // Should be true
+        System.out.println(str1.equals(str3)); // Should be true
+    }
+}
+
+//output
+true
+false
+false
+true
+true
+true
