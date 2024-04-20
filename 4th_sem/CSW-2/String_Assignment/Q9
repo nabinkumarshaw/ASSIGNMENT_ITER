@@ -1,0 +1,43 @@
+9.	Word Replacement in Sentences: Request a sentence and two words from the user: one to search for and one to replace it with. Find the first occurrence of the search word in the sentence. 
+Replace the word using substring operations and concatenation. Display the original and the modified sentences.
+
+//code
+import java.util.Scanner;
+
+public class Q9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a sentence:");
+        String sentence = sc.nextLine();
+        System.out.println("Enter the word to search for:");
+        String searchWord = sc.next();
+        System.out.println("Enter the word to replace it with:");
+        String replaceWord = sc.next();
+
+        // Find the first occurrence of the search word in the sentence
+        int index = sentence.indexOf(searchWord);
+
+        // Replace the word using substring operations and concatenation
+        String modifiedSentence = "";
+        if (index != -1) {
+            modifiedSentence = sentence.substring(0, index) + replaceWord + sentence.substring(index + searchWord.length());
+        } else {
+            modifiedSentence = sentence;
+        }
+
+        // Display the original and the modified sentences
+        System.out.println("Original Sentence: " + sentence);
+        System.out.println("Modified Sentence: " + modifiedSentence);
+
+    }
+}
+
+//output
+Enter a sentence:
+Hello guys how are you all
+Enter the word to search for:
+guys
+Enter the word to replace it with:
+boys
+Original Sentence: Hello guys how are you all
+Modified Sentence: Hello boys how are you all
