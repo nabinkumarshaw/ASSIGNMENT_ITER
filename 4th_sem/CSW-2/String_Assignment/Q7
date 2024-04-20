@@ -1,0 +1,57 @@
+7.	Character Array and Search: Ask for a string from the user. Convert the string to a character array. Prompt the user to enter a character to search in the string. 
+Find the first and last occurrences of the character. Display the character array and the positions found (if any).
+
+//code
+import java.util.Scanner;
+
+public class Q7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String str = sc.nextLine();
+
+        // Convert the string to a character array
+        char[] charArray = str.toCharArray();
+        // Prompt the user to enter a character to search in the string
+        System.out.println("Enter a character to search in the string:");
+        char searchChar = sc.next().charAt(0);
+
+        // Find the first occurrence of the character
+        int firstIndex = -1;
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == searchChar) {
+                firstIndex = i;
+                break;
+            }
+        }
+
+        // Find the last occurrence of the character
+        int lastIndex = -1;
+        for (int i = charArray.length - 1; i >= 0; i--) {
+            if (charArray[i] == searchChar) {
+                lastIndex = i;
+                break;
+            }
+        }
+        // Display the character array and the positions found (if any)
+
+        System.out.println(charArray);
+
+        if (firstIndex != -1 && lastIndex != -1) {
+            System.out.println("First occurrence of '" + searchChar + "' at index: " + firstIndex);
+            System.out.println("Last occurrence of '" + searchChar + "' at index: " + lastIndex);
+        } else {
+            System.out.println("Character '" + searchChar + "' not found in the string.");
+        }
+    }
+}
+
+
+//output
+Enter a string:
+nabin
+Enter a character to search in the string:
+n
+nabin
+First occurrence of 'n' at index: 0
+Last occurrence of 'n' at index: 4
