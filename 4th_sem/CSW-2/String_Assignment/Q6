@@ -1,0 +1,47 @@
+Q6 6.	Case Conversion and Comparison: Prompt the user to input two strings. Convert both strings to lowercase and uppercase. Compare the converted strings to check case-insensitive equality. 
+Display the converted strings and the result of the comparison.
+
+//code
+import java.util.Scanner;
+
+public class Q6 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first string:");
+        String firstString = sc.nextLine();
+
+        System.out.println("Enter the second string:");
+        String secondString = sc.nextLine();
+
+        String firstLower = firstString.toLowerCase();
+        String firstUpper = firstString.toUpperCase();
+        String secondLower = secondString.toLowerCase();
+        String secondUpper = secondString.toUpperCase();
+
+        // Compare the converted strings for case-insensitive equality
+        boolean isEqualIgnoreCase = firstLower.equalsIgnoreCase(secondLower);
+
+        System.out.println("Lowercase: " + firstLower);
+        System.out.println("Uppercase: " + firstUpper);
+
+        System.out.println("Lowercase: " + secondLower);
+        System.out.println("Uppercase: " + secondUpper);
+
+        if (isEqualIgnoreCase) {
+            System.out.println("The converted strings are equal (case-insensitive).");
+        } else {
+            System.out.println("The converted strings are not equal (case-insensitive).");
+        }
+    }
+}
+
+//output
+Enter the first string:
+NaBIn
+Enter the second string:
+naBIN
+Lowercase: nabin
+Uppercase: NABIN
+Lowercase: nabin
+Uppercase: NABIN
+The converted strings are equal (case-insensitive).
