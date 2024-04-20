@@ -1,0 +1,30 @@
+2.	Write a Java program that demonstrates the immutability of the String class and how it implements the CharSequence interface.
+Your program should illustrate the behaviours that highlight String immutability and its usage as a CharSequence.
+
+//code
+public class Q2 {
+        public static void main(String[] args) {
+            // Demonstrating String immutability
+            String originalString = "Hello";
+            System.out.println("Original string: " + originalString);
+
+            String modifiedString = originalString.concat(" World");
+            System.out.println("Modified string: " + modifiedString);
+
+            System.out.println("Original string after modification: " + originalString);
+
+            // Demonstrating usage as CharSequence
+            CharSequence cs = "OpenAI";
+            System.out.println("CharSequence length: " + cs.length());
+            System.out.println("Char at index 2: " + cs.charAt(2));
+            System.out.println("Subsequence from index 2 to 5: " + cs.subSequence(2, 5));
+        }
+    }
+
+//output
+Original string: Hello
+Modified string: Hello World
+Original string after modification: Hello
+CharSequence length: 6
+Char at index 2: e
+Subsequence from index 2 to 5: enA
