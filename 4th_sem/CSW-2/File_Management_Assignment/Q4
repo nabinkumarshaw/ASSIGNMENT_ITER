@@ -1,0 +1,28 @@
+4.	List Files and Directories: Write a program in Java that asks the user for a directory path and then lists all files and subdirectories in that
+directory. If the directory does not exist, the program should inform the user.
+
+//code
+package File_Management;
+
+import java.io.File;
+
+public class Q4 {
+    public static void main(String[] args) {
+        String directoryPath = "/path/diretory/csw2/file_management";
+
+        // Create a File object for the specified directory
+        File mydirectory = new File(directoryPath);
+
+        // Check if the directory exists
+        if (!mydirectory.exists() || !mydirectory.isDirectory()) {
+            System.out.println("The specified directory does not exist.");
+            System.exit(1); // Exit the program
+        }
+        // List all files and subdirectories in the specified directory
+        File[] filesAndDirs = mydirectory.listFiles();
+        for (File list : filesAndDirs) {
+            System.out.println(list.getName());
+        }
+    }
+}
+
