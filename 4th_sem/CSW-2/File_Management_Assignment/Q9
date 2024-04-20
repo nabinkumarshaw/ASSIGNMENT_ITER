@@ -1,0 +1,44 @@
+9.	Display File Metadata: Create a Java program that displays metadata of a specified file. The user should be able to input the file name, and the
+program should output the file size, last modified date, and other available attributes
+
+//code
+package File_Management;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class Q9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the file name:");
+        String fileName = sc.nextLine();
+
+        // Create a File object for the specified file
+        File myfile = new File(fileName);
+
+        // Check if the file exists
+        if (!myfile.exists()) {
+            System.out.println("The specified file does not exist.");
+            System.exit(1);
+        }
+
+        // Display file metadata
+        System.out.println("File Metadata:");
+        System.out.println("Name: " + myfile.getName());
+        System.out.println("Path: " + myfile.getAbsolutePath());
+        System.out.println("Size: " + myfile.length() + " bytes");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        // Display other available attributes
+        System.out.println("Is Directory: " + myfile.isDirectory());
+        System.out.println("Is File: " + myfile.isFile());
+        System.out.println("Can Read: " + myfile.canRead());
+        System.out.println("Can Write: " + myfile.canWrite());
+        System.out.println("Is Hidden: " + myfile.isHidden());
+        sc.close();
+    }
+}
+
+
