@@ -1,0 +1,90 @@
+Q) write a java programme to count the no of inversion in an array using merge sort display the pairs of inversion and the number of inversion
+
+//Algorithm
+1. Start
+2. Define a function countInversions(arr) to count inversions:
+   a. Call mergeSortAndCount(arr, 0, arr.length - 1) and return the result.
+3. Define function mergeSortAndCount(arr, l, r) to perform merge sort and count inversions:
+   a. Initialize count = 0.
+   b. If l < r:
+      i.   Calculate mid = (l + r) / 2.
+      ii.  Recursively call mergeSortAndCount(arr, l, mid).
+      iii. Recursively call mergeSortAndCount(arr, mid + 1, r).
+      iv.  Call mergeAndCount(arr, l, mid, r) and add the returned value to count.
+   c. Return count.
+4. Define function mergeAndCount(arr, l, mid, r) to merge two sorted arrays and count inversions:
+   a. Create two arrays left[] and right[] by copying elements from arr[l:mid+1] and arr[mid+1:r+1].
+   b. Initialize pointers i = 0, j = 0, k = l, swaps = 0.
+   c. Iterate while i < length of left and j < length of right:
+      i.   If left[i] <= right[j], assign arr[k] = left[i] and increment i and k.
+      ii.  Else, assign arr[k] = right[j], increment j and k, and add (mid + 1) - (l + i) to swaps.
+   d. Iterate while i < length of left, assign arr[k] = left[i], and increment i and k.
+   e. Iterate while j < length of right, assign arr[k] = right[j], and increment j and k.
+   f. Return swaps.
+5. End
+
+
+//code
+import java.util.*;
+
+public class CountInversions {
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 20, 6, 4, 5};
+        
+        // Counting inversions
+        int count = countInversions(arr);
+        
+        // Displaying inversions
+        System.out.println("Number of inversions: " + count);
+    }
+    
+    // Function to count inversions
+    public static int countInversions(int[] arr) {
+        return mergeSortAndCount(arr, 0, arr.length - 1);
+    }
+    
+    // Merge sort and count inversions
+    private static int mergeSortAndCount(int[] arr, int l, int r) {
+        int count = 0;
+        if (l < r) {
+            int mid = (l + r) / 2;
+            count += mergeSortAndCount(arr, l, mid);
+            count += mergeSortAndCount(arr, mid + 1, r);
+            count += mergeAndCount(arr, l, mid, r);
+        }
+        return count;
+    }
+    
+    // Merge two sorted arrays and count inversions
+    private static int mergeAndCount(int[] arr, int l, int mid, int r) {
+        int[] left = Arrays.copyOfRange(arr, l, mid + 1);
+        int[] right = Arrays.copyOfRange(arr, mid + 1, r + 1);
+        
+        int i = 0, j = 0, k = l, swaps = 0;
+        
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+                swaps += (mid + 1) - (l + i);
+            }
+        }
+        
+        while (i < left.length) {
+            arr[k++] = left[i++];
+        }
+        
+        while (j < right.length) {
+            arr[k++] = right[j++];
+        }
+        
+        return swaps;
+    }
+}
+
+
+
+//output
+Number of inversions: 5
