@@ -1,0 +1,92 @@
+Q8 Write a program to implement the graph using adjacency matrix representation and 
+adjacency list representation. Create methods to display the adjacency matrix and adjacency 
+list of the graph.
+
+//code
+package Data_Structure_Assignment;
+
+import java.util.*;
+
+class Graph {
+    private int V; // Number of vertices
+    private int[][] adjMatrix; // Adjacency matrix
+    private LinkedList<Integer>[] adjList; // Adjacency list
+
+    // Constructor
+    public Graph(int V) {
+        this.V = V;
+        adjMatrix = new int[V][V];
+        adjList = new LinkedList[V];
+        for (int i = 0; i < V; i++) {
+            adjList[i] = new LinkedList<>();
+        }
+    }
+    // Add an edge to the graph
+    public void addEdge(int source, int dest) {
+        adjMatrix[source][dest] = 1;
+        adjMatrix[dest][source] = 1; // For undirected graph
+        adjList[source].add(dest);
+        adjList[dest].add(source); // For undirected graph
+    }
+
+    // Display adjacency matrix
+    public void displayAdjacencyMatrix() {
+        System.out.println("Adjacency Matrix:");
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                System.out.print(adjMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Display adjacency list
+    public void displayAdjacencyList() {
+        System.out.println("Adjacency List:");
+        for (int i = 0; i < V; i++) {
+            System.out.print(i + " -> ");
+            for (int vertex : adjList[i]) {
+                System.out.print(vertex + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+public class Q8 {
+    public static void main(String[] args) {
+        int V = 5; // Number of vertices
+
+        // Create a graph
+        Graph graph = new Graph(V);
+
+        // Add edges
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 4);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+
+        // Display adjacency matrix
+        graph.displayAdjacencyMatrix();
+
+        // Display adjacency list
+        graph.displayAdjacencyList();
+    }
+}
+
+
+//output
+Adjacency Matrix:
+0 1 0 0 1 
+1 0 1 1 1 
+0 1 0 1 0 
+0 1 1 0 1 
+1 1 0 1 0 
+Adjacency List:
+0 -> 1 4 
+1 -> 0 2 3 4 
+2 -> 1 3 
+3 -> 1 2 4 
+4 -> 0 1 3
