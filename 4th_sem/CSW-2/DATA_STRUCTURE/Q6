@@ -1,0 +1,58 @@
+Q6. Determine if a given binary tree is a binary search tree. You will use an 'isBST()' method, 
+which takes the maximum and minimum range of the values of the nodes
+
+package Data_Structure_Assignment;
+
+class BNode {
+    int data;
+    BNode left, right;
+
+    public BNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+ class BinaryTree {
+    BNode4 root;
+
+    public BinaryTree() {
+        this.root = null;
+    }
+    public boolean isBST() {
+        return isBSTUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBSTUtil(BNode node, int min, int max) {
+        // Base case: an empty tree is considered a BST
+        if (node == null) {
+            return true;
+        }
+        // Check if the current node's value is within the valid range
+        if (node.data < min || node.data > max) {
+            return false;
+        }
+        // Recursively check the left and right subtrees with updated ranges
+        return isBSTUtil(node.left, min, node.data - 1) && isBSTUtil(node.right, node.data + 1, max);
+    }
+    public static void main(String[] args) {
+        // Constructing a binary tree
+        BinaryTree tree = new BinaryTree();
+        tree.root = new BNode(4);
+        tree.root.left = new BNode(2);
+        tree.root.right = new BNode(5);
+        tree.root.left.left = new BNode(1);
+        tree.root.left.right = new BNode(3);
+
+        // Check if the tree is a BST
+        if (tree.isBST()) {
+            System.out.println("The given binary tree is a binary search tree.");
+        } else {
+            System.out.println("The given binary tree is not a binary search tree.");
+        }
+    }
+}
+
+//output
+The given binary tree is a binary search tree.
+
