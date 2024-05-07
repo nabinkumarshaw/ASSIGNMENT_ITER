@@ -1,0 +1,102 @@
+Q7. Remove node x from the binary search tree and reorganize the nodes to maintain its
+necessary properties. 
+There are three cases in the deletion process. Let us denote the node that needs to be deleted as 
+x:
+Case 1: Node x has no children. 
+Case 2: Node x has one child. 
+Case 3: Node x has two children. 
+
+//code
+
+package Data_Structure_Assignment;
+class BNode5 {
+    int data;
+    BNode5 left, right;
+
+    public BNode5(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+ class BinaryTree2 {
+    BNode5 root;
+
+    public BinaryTree2() {
+        this.root = null;
+    }
+
+    public void delete(int key) {
+        root = deleteRecursive(root, key);
+    }
+
+    private BNode5 deleteRecursive(BNode5 node, int key) {
+        if (node == null) {
+            return null;
+        }
+        if (key < node.data) {
+            node.left = deleteRecursive(node.left, key);
+        } else if (key > node.data) {
+            node.right = deleteRecursive(node.right, key);
+        } else {
+            // Case 1 and Case 2: Node with one child or no child
+            if (node.left == null) {
+                return node.right;
+            } else if (node.right == null) {
+                return node.left;
+            }
+
+            // Case 3: Node with two children
+            node.data = minValue(node.right);
+            node.right = deleteRecursive(node.right, node.data);
+        }
+        return node;
+    }
+
+    private int minValue(BNode5 node) {
+        int minv = node.data;
+        while (node.left != null) {
+            minv = node.left.data;
+            node = node.left;
+        }
+        return minv;
+    }
+
+    // Inorder traversal for testing
+    public void inorderTraversal(BNode5 node) {
+        if (node != null) {
+            inorderTraversal(node.left);
+            System.out.print(node.data + " ");
+            inorderTraversal(node.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinaryTree2 tree = new BinaryTree2();
+        tree.root = new BNode5(50);
+        tree.root.left = new BNode5(30);
+        tree.root.right = new BNode5(70);
+        tree.root.left.left = new BNode5(20);
+        tree.root.left.right = new BNode5(40);
+        tree.root.right.left = new BNode5(60);
+        tree.root.right.right = new BNode5(80);
+
+        System.out.println("Inorder traversal before deletion:");
+        tree.inorderTraversal(tree.root);
+        System.out.println();
+
+        int keyToDelete = 30;
+        tree.delete(keyToDelete);
+
+        System.out.println("Inorder traversal after deletion of " + keyToDelete + ":");
+        tree.inorderTraversal(tree.root);
+    }
+}
+
+
+//output
+Inorder traversal before deletion:
+20 30 40 50 60 70 80 
+Inorder traversal after deletion of 30:
+20 40 50 60 70 80 
