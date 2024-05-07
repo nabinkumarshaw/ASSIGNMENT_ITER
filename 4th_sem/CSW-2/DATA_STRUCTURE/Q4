@@ -1,0 +1,113 @@
+Q4) Extend the BST created in Q3 by adding methods to traverse the tree in level order, find 
+the node with the maximum population (find-max), and find the node with the minimum 
+population (find-min). Invoke these methods for execution.
+
+//code
+import java.util.LinkedList;
+import java.util.Queue;
+
+class BST {
+    BNode root;
+
+    public BST() {
+        this.root = null;
+    }
+
+    public void insert(Country country) {
+        if (country == null) {
+            return;
+        }
+        if (root == null) {
+            root = new BNode(country);
+        } else {
+            insertRecursive(root, country);
+        }
+    }
+    private void insertRecursive(BNode node, Country c) {
+        if (c.name.compareTo(node.info.name) < 0) {
+            if (node.left == null) {
+                node.left = new BNode(c);
+            } else {
+                insertRecursive(node.left, c);
+            }
+        } else if (c.name.compareTo(node.info.name) > 0) {
+            if (node.right == null) {
+                node.right = new BNode(c);
+            } else {
+                insertRecursive(node.right, c);
+            }
+        }
+    }
+    public void levelOrderTraversal() {
+        if (root == null) {
+            return;
+        }
+        Queue<BNode> queue = new LinkedList<>();
+        queue.offer(root);
+        System.out.println("Level Order Traversal:");
+        while (!queue.isEmpty()) {
+            BNode node = queue.poll();
+            System.out.println(node.info.name);
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+    }
+    public BNode findMax() {
+        return findMaxRecursive(root);
+    }
+    private BNode findMaxRecursive(BNode node) {
+        if (node == null || node.right == null) {
+            return node;
+        }
+        return findMaxRecursive(node.right);
+    }
+    public BNode findMin() {
+        return findMinRecursive(root);
+    }
+    private BNode findMinRecursive(BNode node) {
+        if (node == null || node.left == null) {
+            return node;
+        }
+        return findMinRecursive(node.left);
+    }
+}
+public class Q4 {
+    public static void main(String[] args) {
+        Country usa = new Country("USA", 328_200_000);
+        Country china = new Country("China", 1_394_000_000);
+        Country india = new Country("India", 1_366_000_000);
+        Country brazil = new Country("Brazil", 211_000_000);
+        Country russia = new Country("Russia", 146_000_000);
+        BST bst = new BST();
+        bst.insert(usa);
+        bst.insert(china);
+        bst.insert(india);
+        bst.insert(brazil);
+        bst.insert(russia);
+
+        // Level order traversal
+        bst.levelOrderTraversal();
+
+        // Find node with maximum population
+        BNode maxNode = bst.findMax();
+        System.out.println("Node with maximum population: " + maxNode.info.name);
+
+        // Find node with minimum population
+        BNode minNode = bst.findMin();
+        System.out.println("Node with minimum population: " + minNode.info.name);
+    }
+}
+
+//output
+Level Order Traversal:
+USA
+China
+Brazil
+India
+Russia
+Node with maximum population: USA
+Node with minimum population: Brazil
