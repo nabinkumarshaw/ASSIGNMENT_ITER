@@ -1,0 +1,89 @@
+Q9 Create a class Graph with a linked list member to represent N number of vertices. 
+Implement the required constructor. Add a method to the Graph class for reading a graph and 
+storing it in an adjacency list representation. 
+Include a depth-first search (DFS) method in the Graph class to traverse the vertices of the 
+graph, and a main method to invoke all the methods
+
+//code
+package Data_Structure_Assignment;
+
+import java.util.*;
+
+class Graph3 {
+    private int V; // Number of vertices
+    private LinkedList<Integer>[] adjList; // Adjacency list
+
+    // Constructor
+    public Graph3(int V) {
+        this.V = V;
+        adjList = new LinkedList[V];
+        for (int i = 0; i < V; i++) {
+            adjList[i] = new LinkedList<>();
+        }
+    }
+    // Method to add an edge to the graph
+    public void addEdge(int src, int dest) {
+        adjList[src].add(dest);
+    }
+
+    // Method to read a graph and store it in an adjacency list representation
+    public void readGraph(Scanner sc, int edges) {
+        System.out.println("Enter edges (source destination):");
+        for (int i = 0; i < edges; i++) {
+            int source = sc.nextInt();
+            int destination = sc.nextInt();
+            addEdge(source, destination);
+        }
+    }
+
+    // Depth-first search (DFS) method
+    public void DFS(int startVertex) {
+        boolean[] visited = new boolean[V];
+        DFSUtil(startVertex, visited);
+    }
+
+    // Utility function for DFS
+    private void DFSUtil(int vertex, boolean[] visited) {
+        visited[vertex] = true;
+        System.out.print(vertex + " ");
+
+        for (int neighbor : adjList[vertex]) {
+            if (!visited[neighbor]) {
+                DFSUtil(neighbor, visited);
+            }
+        }
+    }
+}
+
+public class Q9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of vertices: ");
+        int V = sc.nextInt();
+        System.out.print("Enter the number of edges: ");
+        int E = sc.nextInt();
+
+        // Create a graph
+        Graph3 graph = new Graph3(V);
+
+        // Read and store the graph
+        graph.readGraph(sc, E);
+
+        // Close scanner
+        sc.close();
+
+        // Perform DFS traversal from vertex 0
+        System.out.println("Depth-first traversal starting from vertex 0:");
+        graph.DFS(0);
+    }
+}
+
+//output
+Enter the number of vertices: 6
+Enter the number of edges: 2
+Enter edges (source destination):
+0 4
+2 5
+Depth-first traversal starting from vertex 0:
+0 4 
