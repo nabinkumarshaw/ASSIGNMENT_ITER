@@ -1,0 +1,58 @@
+Q4)  Create a functional interface Shape with a method double area() and a 
+default method void printArea(). Implement the interface using lambda 
+expressions for different shapes. Define the Shape functional interface with an 
+area method. Implement the interface for shapes like circle, square, and 
+rectangle using lambda expressions. Use the default method to print the area of 
+each shape
+
+//code
+package Lambdas_Functional_Programming;
+
+@FunctionalInterface
+interface Shape {
+    double area();
+    default void printArea() {
+        System.out.println("The area is: " + area());
+    }
+}
+public class Q4 {
+    public static void main(String[] args) {
+        // Circle with radius 5
+        Shape circle = () -> {
+            double radius = 5;
+            return Math.PI * radius * radius;
+        };
+
+        // Square with side length 4
+        Shape square = () -> {
+            double side = 4;
+            return side * side;
+        };
+
+        // Rectangle with width 3 and height 6
+        Shape rectangle = () -> {
+            double width = 3;
+            double height = 6;
+            return width * height;
+        };
+
+        // Use the default method to print the area of each shape
+        System.out.println("Circle:");
+        circle.printArea();
+
+        System.out.println("Square:");
+        square.printArea();
+
+        System.out.println("Rectangle:");
+        rectangle.printArea();
+    }
+}
+
+
+//output
+Circle:
+The area is: 78.53981633974483
+Square:
+The area is: 16.0
+Rectangle:
+The area is: 18.0
