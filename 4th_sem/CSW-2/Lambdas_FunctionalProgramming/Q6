@@ -1,0 +1,36 @@
+Q6) Write a program that demonstrates a function returning another function, 
+where the inner function calculates the square of a number. Define a function 
+that returns another function. The inner function should calculate the square of a 
+given number. Demonstrate the use of the returned function to calculate squares
+
+//code
+package Lambdas_Functional_Programming;
+
+import java.util.function.Function;
+
+public class Q6 {
+    public static void main(String[] args) {
+        // Step 1: Define a function that returns another function
+        Function<Integer, Integer> squareFunction = getSquareFunction();
+
+        // Step 2: Demonstrate the use of the returned function to calculate squares
+        int number1 = 5;
+        int number2 = 7;
+        int number3 = 9;
+
+        System.out.println("The square of " + number1 + " is: " + squareFunction.apply(number1));
+        System.out.println("The square of " + number2 + " is: " + squareFunction.apply(number2));
+        System.out.println("The square of " + number3 + " is: " + squareFunction.apply(number3));
+    }
+
+    // Step 3: Implement the function that returns another function to calculate the square
+    public static Function<Integer, Integer> getSquareFunction() {
+        return (Integer x) -> x * x;
+    }
+}
+
+
+//output
+The square of 5 is: 25
+The square of 7 is: 49
+The square of 9 is: 81
