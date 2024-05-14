@@ -1,0 +1,39 @@
+Q11) Write a Java program that converts a given date and time in UTC to the 
+local date and time of a specific time zone (e.g., "America/New_York"). Parse a 
+string representing a date and time in UTC format. Convert the parsed Instant to 
+a ZonedDateTime using a specific ZoneId
+
+//code
+
+package Lambdas_Functional_Programming;
+
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Q11 {
+    public static void main(String[] args) {
+        // Step 1: Parse a string representing a date and time in UTC format
+        String utcDateTimeString = "2024-05-14T14:30:00Z";
+        Instant instant = Instant.parse(utcDateTimeString);
+
+        // Step 2: Convert the parsed Instant to a ZonedDateTime in UTC
+        ZonedDateTime utcDateTime = instant.atZone(ZoneId.of("UTC"));
+
+        // Step 3: Convert the ZonedDateTime to the local date and time of a specific time zone (e.g., "America/New_York")
+        ZonedDateTime newYorkDateTime = utcDateTime.withZoneSameInstant(ZoneId.of("America/New_York"));
+
+        // Define the format for output
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z");
+
+        // Print the converted date and time
+        System.out.println("Original UTC DateTime: " + utcDateTime.format(formatter));
+        System.out.println("New York DateTime: " + newYorkDateTime.format(formatter));
+    }
+}
+
+
+//output
+Original UTC DateTime: 2024-05-14 14:30:00 UTC
+New York DateTime: 2024-05-14 10:30:00 GMT-04:00
