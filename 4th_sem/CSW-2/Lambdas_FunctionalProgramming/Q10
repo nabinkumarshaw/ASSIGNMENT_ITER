@@ -1,0 +1,30 @@
+Q10) Write a Java program that takes a LocalDateTime object and formats it to 
+a custom string format ("yyyy-MM-dd HH:mm:ss"). Define a LocalDateTime 
+object representing a specific date and time. Use DateTimeFormatter to format 
+the LocalDateTime object to the desired string format
+
+//code
+
+package Lambdas_Functional_Programming;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Q10 {
+    public static void main(String[] args) {
+        // Step 1: Define a LocalDateTime object representing a specific date and time
+        LocalDateTime dateTime = LocalDateTime.of(2024, 5, 14, 10, 30, 45);
+
+        // Step 2: Define the custom format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // Step 3: Format the LocalDateTime object to the desired string format
+        String formattedDateTime = dateTime.format(formatter);
+
+        // Print the formatted date and time
+        System.out.println("Formatted Date and Time: " + formattedDateTime);
+    }
+}
+
+//output
+Formatted Date and Time: 2024-05-14 10:30:45
