@@ -1,0 +1,51 @@
+Q3) Write a program that demonstrates lazy evaluation by creating a lazy 
+sequence of prime numbers. Define a lazy sequence using lambda expressions 
+that generates prime numbers. Demonstrate lazy evaluation by printing the first 
+few prime numbers from the lazy sequence.
+
+//code
+package lambdas_FunctionalProgramming;
+
+import java.util.stream.Stream;
+
+public class Q3 {
+    public static void main(String[] args) {
+        // Step 1: Create a stream of prime numbers
+        Stream<Integer> primeStream = Stream.iterate(2, Q3::nextPrime);
+
+        // Step 2: Demonstrate lazy evaluation by printing the first few prime numbers
+        primeStream.limit(10).forEach(System.out::println);
+    }
+
+    // Method to find the next prime number after a given number
+    public static int nextPrime(int after) {
+        int candidate = after + 1;
+        while (!isPrime(candidate)) {
+            candidate++;
+        }
+        return candidate;
+    }
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int number) {
+        if (number <= 1) return false;
+        if (number == 2) return true;
+        if (number % 2 == 0) return false;
+        for (int i = 3; i * i <= number; i += 2) {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+//output
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
