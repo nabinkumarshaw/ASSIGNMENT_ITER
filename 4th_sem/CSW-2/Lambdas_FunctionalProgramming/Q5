@@ -1,0 +1,39 @@
+Q5)Write a program that reads a list of strings, converts them to uppercase, 
+filters out the strings starting with a vowel, and then prints the remaining 
+strings
+
+package Lambdas_Functional_Programming;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Q5 {
+    public static void main(String[] args) {
+        // Step 1: Read a list of strings
+        List<String> strings = Arrays.asList("apple", "banana", "orange", "grape", "kiwi", "avocado");
+
+        // Step 2: Convert the strings to uppercase
+        List<String> upperCaseStrings = strings.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+
+        // Step 3: Filter out strings that start with a vowel
+        List<String> filteredStrings = upperCaseStrings.stream()
+                .filter(s -> !startsWithVowel(s))
+                .collect(Collectors.toList());
+
+        // Step 4: Print the remaining strings
+        filteredStrings.forEach(System.out::println);
+    }
+
+    // Helper method to check if a string starts with a vowel
+    private static boolean startsWithVowel(String s) {
+        return s.startsWith("A") || s.startsWith("E") || s.startsWith("I") || s.startsWith("O") || s.startsWith("U");
+    }
+}
+
+//output
+BANANA
+GRAPE
+KIWI
