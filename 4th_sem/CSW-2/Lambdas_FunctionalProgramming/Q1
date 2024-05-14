@@ -1,0 +1,54 @@
+Q1) Create a functional interface Calculator with methods for addition, 
+subtraction, multiplication, and division. Implement these methods using 
+lambda expressions. Define the Calculator functional interface with methods for 
+arithmetic operations. Implement the interface methods using lambda 
+expressions for basic arithmetic operations
+
+//code
+
+@FunctionalInterface
+interface Calculator {
+    double operate(double a, double b);
+
+    static Calculator addition() {
+        return (a, b) -> a + b;
+    }
+    static Calculator subtraction() {
+        return (a, b) -> a - b;
+    }
+    static Calculator multiplication() {
+        return (a, b) -> a * b;
+    }
+    static Calculator division() {
+        return (a, b) -> {
+            if (b == 0) {
+                throw new ArithmeticException("Division by zero");
+            }
+            return a / b;
+        };
+    }
+}
+public class Q1 {
+    public static void main(String[] args) {
+        // Using lambda expressions for each arithmetic operation
+        Calculator add = Calculator.addition();
+        Calculator subtract = Calculator.subtraction();
+        Calculator multiply = Calculator.multiplication();
+        Calculator divide = Calculator.division();
+
+        double a = 10;
+        double b = 5;
+
+        System.out.println("Addition: " + add.operate(a, b));         // Output: 15.0
+        System.out.println("Subtraction: " + subtract.operate(a, b)); // Output: 5.0
+        System.out.println("Multiplication: " + multiply.operate(a, b)); // Output: 50.0
+        System.out.println("Division: " + divide.operate(a, b));     // Output: 2.0
+    }
+}
+
+
+//output
+Addition: 15.0
+Subtraction: 5.0
+Multiplication: 50.0
+Division: 2.0
