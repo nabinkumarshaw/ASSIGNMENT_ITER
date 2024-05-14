@@ -1,0 +1,155 @@
+Q9) Write a program that implements the producer-consumer problem using 
+lambda expressions and threads. Define a bounded buffer class that implements 
+a queue. Create producer and consumer classes that use lambda expressions to 
+produce and consume items from the bounded buffer. Create and start multiple 
+producer and consumer threads to demonstrate the producer-consumer problem
+
+//code
+
+package Lambdas_Functional_Programming;
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+class BoundedBuffer<T> {
+    private final BlockingQueue<T> queue;
+
+    public BoundedBuffer(int capacity) {
+        this.queue = new LinkedBlockingQueue<>(capacity);
+    }
+
+    public void put(T item) throws InterruptedException {
+        queue.put(item);
+    }
+
+    public T take() throws InterruptedException {
+        return queue.take();
+    }
+}
+public class Q9 {
+    public static void main(String[] args) {
+        // Define the bounded buffer with a capacity of 10
+        BoundedBuffer<Integer> buffer = new BoundedBuffer<>(10);
+
+        // Create producer tasks using lambda expressions
+        Runnable producerTask = () -> {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    buffer.put(i);
+                    System.out.println("Produced: " + i);
+                    Thread.sleep((int)(Math.random() * 100)); // Simulate work
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        };
+
+        // Create consumer tasks using lambda expressions
+        Runnable consumerTask = () -> {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    int item = buffer.take();
+                    System.out.println("Consumed: " + item);
+                    Thread.sleep((int)(Math.random() * 100)); // Simulate work
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        };
+
+        // Create and start producer threads
+        Thread producer1 = new Thread(producerTask);
+        Thread producer2 = new Thread(producerTask);
+
+        // Create and start consumer threads
+        Thread consumer1 = new Thread(consumerTask);
+        Thread consumer2 = new Thread(consumerTask);
+
+        producer1.start();
+        producer2.start();
+        consumer1.start();
+        consumer2.start();
+    }
+}
+
+//output
+Consumed: 0
+Consumed: 0
+Produced: 0
+Produced: 0
+Produced: 1
+Consumed: 1
+Produced: 2
+Produced: 1
+Consumed: 2
+Consumed: 1
+Produced: 3
+Consumed: 3
+Produced: 4
+Consumed: 4
+Produced: 2
+Produced: 5
+Produced: 3
+Consumed: 2
+Produced: 6
+Consumed: 5
+Produced: 4
+Produced: 5
+Consumed: 3
+Produced: 6
+Produced: 7
+Consumed: 6
+Consumed: 4
+Produced: 7
+Consumed: 5
+Consumed: 6
+Produced: 8
+Produced: 9
+Produced: 8
+Consumed: 7
+Consumed: 7
+Consumed: 8
+Produced: 10
+Consumed: 9
+Consumed: 8
+Consumed: 10
+Produced: 9
+Produced: 11
+Consumed: 9
+Produced: 12
+Consumed: 11
+Consumed: 12
+Produced: 10
+Consumed: 10
+Produced: 13
+Produced: 14
+Consumed: 13
+Consumed: 14
+Produced: 11
+Produced: 12
+Consumed: 11
+Consumed: 12
+Produced: 15
+Produced: 13
+Produced: 14
+Produced: 16
+Consumed: 15
+Consumed: 13
+Produced: 15
+Produced: 17
+Produced: 16
+Consumed: 14
+Consumed: 16
+Produced: 17
+Produced: 18
+Consumed: 15
+Produced: 18
+Produced: 19
+Consumed: 17
+Produced: 19
+Consumed: 16
+Consumed: 17
+Consumed: 18
+Consumed: 18
+Consumed: 19
+Consumed: 19
