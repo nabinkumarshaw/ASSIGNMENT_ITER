@@ -1,0 +1,44 @@
+Write a program that sorts a list of strings based on their lengths in 
+descending order. Define a custom comparator using a lambda expression that 
+compares strings based on their lengths. Use the custom comparator to sort the 
+list of strings in descending order of length.
+
+
+//code
+package Lambdas_Functional_Programming;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Q2 {
+    public static void main(String[] args) {
+        List<String> strings = new ArrayList<>();
+        strings.add("apple");
+        strings.add("banana");
+        strings.add("cherry");
+        strings.add("date");
+        strings.add("elderberry");
+        strings.add("fig");
+        strings.add("grape");
+
+        // Step 2: Define a custom comparator using a lambda expression
+        Comparator<String> lengthComparator = (s1, s2) -> Integer.compare(s2.length(), s1.length());
+
+        // Step 3: Sort the list using the custom comparator
+        Collections.sort(strings, lengthComparator);
+
+        // Print the sorted list
+        strings.forEach(System.out::println);
+    }
+}
+
+//output
+elderberry
+banana
+cherry
+apple
+grape
+date
+fig
