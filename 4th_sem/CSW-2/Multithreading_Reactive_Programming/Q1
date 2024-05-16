@@ -1,0 +1,98 @@
+Q1. Write a Java program to create a simple calculator that performs arithmetic operations
+(addition, subtraction, multiplication, division) using multiple threads. Each arithmetic operation
+should be handled by a separate thread
+
+//code
+
+package Multithreading;
+
+public class Q1 {
+
+    public static void main(String[] args) {
+        double num1 = 10.5;
+        double num2 = 5.5;
+
+        // Creating threads for each operation
+        Thread additionThread = new Thread(new Addition(num1, num2));
+        Thread subtractionThread = new Thread(new Subtraction(num1, num2));
+        Thread multiplicationThread = new Thread(new Multiplication(num1, num2));
+        Thread divisionThread = new Thread(new Division(num1, num2));
+
+        // Starting the threads
+        additionThread.start();
+        subtractionThread.start();
+        multiplicationThread.start();
+        divisionThread.start();
+    }
+}
+
+// Runnable for Addition
+class Addition implements Runnable {
+    private double num1, num2;
+
+    public Addition(double num1, double num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Addition: " + (num1 + num2));
+    }
+}
+
+// Runnable for Subtraction
+class Subtraction implements Runnable {
+    private double num1, num2;
+
+    public Subtraction(double num1, double num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Subtraction: " + (num1 - num2));
+    }
+}
+
+// Runnable for Multiplication
+class Multiplication implements Runnable {
+    private double num1, num2;
+
+    public Multiplication(double num1, double num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Multiplication: " + (num1 * num2));
+    }
+}
+
+// Runnable for Division
+class Division implements Runnable {
+    private double num1, num2;
+
+    public Division(double num1, double num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    @Override
+    public void run() {
+        if (num2 != 0) {
+            System.out.println("Division: " + (num1 / num2));
+        } else {
+            System.out.println("Division by zero is not allowed.");
+        }
+    }
+}
+
+
+//output
+Subtraction: 5.0
+Multiplication: 57.75
+Addition: 16.0
+Division: 1.9090909090909092
