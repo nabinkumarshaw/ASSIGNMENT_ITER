@@ -1,0 +1,77 @@
+Q3.  Write a Java program to multiply two matrices using multithreading. Divide the task of
+multiplying rows of the matrices among multiple threads to improve performance
+
+//code
+
+public class Q3 {
+    public static void main(String[] args) {
+        int[][] matrixA = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        int[][] matrixB = {
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+        };
+
+        int[][] result = new int[matrixA.length][matrixB[0].length];
+
+        Thread[] threads = new Thread[matrixA.length];
+        
+        for (int i = 0; i < matrixA.length; i++) {
+            threads[i] = new Thread(new RowMultiplier(matrixA, matrixB, result, i));
+            threads[i].start();
+        }
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        printMatrix(result);
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+class RowMultiplier implements Runnable {
+    private final int[][] matrixA;
+    private final int[][] matrixB;
+    private final int[][] result;
+    private final int row;
+
+    public RowMultiplier(int[][] matrixA, int[][] matrixB, int[][] result, int row) {
+        this.matrixA = matrixA;
+        this.matrixB = matrixB;
+        this.result = result;
+        this.row = row;
+    }
+
+    @Override
+    public void run() {
+        for (int j = 0; j < matrixB[0].length; j++) {
+            result[row][j] = 0;
+            for (int k = 0; k < matrixA[0].length; k++) {
+                result[row][j] += matrixA[row][k] * matrixB[k][j];
+            }
+        }
+    }
+}
+
+//output
+30 24 18 
+84 69 54 
+138 114 90 
