@@ -1,0 +1,52 @@
+class addthread extends Thread{
+    double a = 10.5;
+    double b = 5.5;
+    public void add(double a,double b){
+        System.out.println(a+b);
+    }
+    public void run(){
+        add(a,b);
+    }
+}
+class subtractthread extends Thread {
+    double a = 10.5;
+    double b = 5.5;
+    public void sub(double a, double b) {
+        System.out.println(a - b);
+    }
+    public void run(){
+        sub(a,b);
+    }
+}
+class multiplythread extends Thread {
+    double a = 10.5;
+    double b = 5.5;
+    public void mul(double a, double b) {
+        System.out.println(a * b);
+    }
+    public void run(){
+        mul(a,b);
+    }
+}
+class divisionthread extends Thread {
+    double a = 10.5;
+    double b = 5.5;
+    public void div(double a, double b) {
+        System.out.println(a / b);
+    }
+    public void run(){
+        div(a,b);
+    }
+}
+public class calculator {
+    public static void main(String[] args) {
+        addthread addition=new addthread();
+        addition.start();
+        subtractthread subtract=new subtractthread();
+        subtract.start();
+        multiplythread multiply=new multiplythread();
+        multiply.start();
+        divisionthread division=new divisionthread();
+        division.start();
+    }
+}
