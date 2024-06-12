@@ -11,34 +11,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-public class Q2 {
-    public static void main(String[] args) {
-        List<String> strings = new ArrayList<>();
-        strings.add("apple");
-        strings.add("banana");
-        strings.add("cherry");
-        strings.add("date");
-        strings.add("elderberry");
-        strings.add("fig");
-        strings.add("grape");
-
-        // Step 2: Define a custom comparator using a lambda expression
-        Comparator<String> lengthComparator = (s1, s2) -> Integer.compare(s2.length(), s1.length());
-
-        // Step 3: Sort the list using the custom comparator
-        Collections.sort(strings, lengthComparator);
-
-        // Print the sorted list
-        strings.forEach(System.out::println);
-    }
+public class Main {
+public static void main(String[] args) {
+List<String> strings = new ArrayList<>();
+strings.add("apple");
+strings.add("banana");
+strings.add("cherry");
+strings.add("blueberry");
+strings.add("grapefruit");
+Collections.sort(strings, Comparator.comparing(s -> s.length()).reversed());
+for (String str : strings) {
+System.out.println(str);
 }
-
-//output
-elderberry
+}
+}
+Output:- grapefruit
 banana
 cherry
 apple
-grape
-date
-fig
+Blueberr
