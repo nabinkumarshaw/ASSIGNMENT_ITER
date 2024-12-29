@@ -9,9 +9,4 @@ occurrences = {vowel: string.count(vowel) for vowel in vowels if vowel in string
 print("Vowels found:", occurrences.keys())
 print("Occurrences:", occurrences)
 
-'''
-Output ->
-Enter a string: Hello, It's DevSom404
-Vowels found: dict_keys(['e', 'i', 'o'])
-Occurrences: {'e': 2, 'i': 1, 'o': 2}
-'''
+
