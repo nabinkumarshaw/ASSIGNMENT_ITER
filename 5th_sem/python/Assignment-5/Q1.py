@@ -1,13 +1,15 @@
 '''Write aprogramtoaccept student name and marks fromthe user and create a dictionary. Also, display
  student marks by taking student name as input.'''
  
- import numpy as np
-
-array_ones = np.ones((2, 3))
-print(array_ones)
-
-array_zeros = np.zeros((3, 3))
-print(array_zeros)
-
-array_sevens = np.full((2, 5), 7)
-print(array_sevens)
+students = {}
+for i in range(3):
+    name = input("Enter student name: ")
+    marks = int(input("Enter student marks: "))
+    students[name] = marks
+    
+# print(students)
+search_name = input("Enter the name to search: ")
+if search_name in students.keys:
+    print(f"marks of {search_name} is {students.get(search_name)}")
+else:
+    print("student not found")
