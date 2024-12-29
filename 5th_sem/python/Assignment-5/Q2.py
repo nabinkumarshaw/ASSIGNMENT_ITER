@@ -13,17 +13,3 @@ print("Student Information:")
 for name, percentage in students.items():
     print(f"{name}: {percentage}%")
 
-'''
-Output ->
-Enter number of students: 3
-Enter student name: Somnath
-Enter percentage: 78
-Enter student name: Abc
-Enter percentage: 98
-Enter student name: Xyz
-Enter percentage: 56
-Student Information:
-Somnath: 78.0%
-Abc: 98.0%
-Xyz: 56.0%
-'''
