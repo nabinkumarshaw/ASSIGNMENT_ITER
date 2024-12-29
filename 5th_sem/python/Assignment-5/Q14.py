@@ -8,8 +8,4 @@ string = input("Enter a string: ")
 unique_chars = set(string)
 print("Number of unique characters:", len(unique_chars))
 
-'''
-Output ->
-Enter a string: Hello I am Somnath
-Number of unique characters: 12
-'''
+
